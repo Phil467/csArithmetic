@@ -1,0 +1,100 @@
+# depslib dependency file v1.0
+1750515268 source:d:\aritmetic\csarithmetic4\main.cpp
+	"csParallelTask/csPERF_MEASUREMENT.h"
+	"csSQRT.h"
+
+1750512690 source:d:\aritmetic\csarithmetic4\src\csaddition.cpp
+	<csARITHMETIC.h>
+
+1752517948 d:\aritmetic\csarithmetic4\include\csarithmetic.h
+	<cstddef>
+	<math.h>
+	<time.h>
+	<random>
+	<iostream>
+	<string.h>
+	<complex>
+	<cstddef>
+	<cstdio>
+	<cstdlib>
+	<cstring>
+	<functional>
+	<iostream>
+	<numeric>
+	<cxxabi.h>
+	<experimental/source_location>
+	"csArithUtils.h"
+
+1750512617 d:\aritmetic\csarithmetic4\include\csarithutils.h
+	<iostream>
+
+1750512676 source:d:\aritmetic\csarithmetic4\src\csarithmetic.cpp
+	"csARITHMETIC.h"
+
+1738638456 source:d:\aritmetic\csarithmetic4\src\csdivision.cpp
+	"csARITHMETIC.h"
+
+1736777768 source:d:\aritmetic\csarithmetic4\src\csmodulus.cpp
+	"csARITHMETIC.h"
+
+1736777278 source:d:\aritmetic\csarithmetic4\src\csmultiplication.cpp
+	"csARITHMETIC.h"
+
+1750512701 source:d:\aritmetic\csarithmetic4\src\csqnumber.cpp
+	"csARITHMETIC.h"
+	<cstddef>
+	<cstdio>
+	<cstring>
+
+1750512741 source:d:\aritmetic\csarithmetic4\src\csrnumber.cpp
+	"csARITHMETIC.h"
+	<cstddef>
+	<cstdio>
+	<cstring>
+
+1750513869 source:d:\aritmetic\csarithmetic4\src\cssqrt.cpp
+	"csSQRT.h"
+
+1750513869 d:\aritmetic\csarithmetic4\include\cssqrt.h
+	"csARITHMETIC.h"
+	<thread>
+
+1736777388 source:d:\aritmetic\csarithmetic4\src\cssubstraction.cpp
+	"csARITHMETIC.h"
+
+1737853281 source:d:\aritmetic\csarithmetic4\src\jacobi.cpp
+	"jacobi.h"
+
+1737853281 d:\aritmetic\csarithmetic4\include\jacobi.h
+	"utilities.h"
+
+1736013790 d:\aritmetic\csarithmetic4\include\utilities.h
+	<iostream>
+	<cstdlib>
+	<cstdio>
+	<cstdint>
+	<string.h>
+	<cmath>
+	<iomanip>
+	<time.h>
+	"csARITHMETIC.h"
+
+1738524353 source:d:\aritmetic\csarithmetic4\src\linearalgebra.cpp
+	"LinearAlgebra.h"
+
+1736882054 d:\aritmetic\csarithmetic4\include\linearalgebra.h
+	<iostream>
+	"jacobi.h"
+	"utilities.h"
+
+1738510446 source:d:\aritmetic\csarithmetic4\src\utilities.cpp
+	"utilities.h"
+
+1750512793 source:d:\aritmetic\csarithmetic4\src\csarithutils.cpp
+	"csArithUtils.h"
+	<string.h>
+
+1746571663 d:\aritmetic\csarithmetic4\include\csparalleltask\csperf_measurement.h
+	<chrono>
+	<iostream>
+
