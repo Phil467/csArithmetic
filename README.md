@@ -5,7 +5,7 @@
 <div align="center">
 Educational library for calculating with n-digit numbers.
 </div>
----
+
 
 ## ABOUT
 
@@ -16,7 +16,7 @@ The weighted convergence method is a consequence of a larger study that I carrie
 Moreover, the parallelizable version of its implementation in the class **`csSQRTFAST`** contains an identified bug, but not corrected for the moment, given the complexity of its implementation. 
 
 I will also do the documentation of the library very soon.
----
+
 
 <h1 align="center">
 🧩 csArithmetic
@@ -25,7 +25,7 @@ I will also do the documentation of the library very soon.
 <div align="center">
 Bibliothèque pédagogique pour le calcul avec des nombres à n chiffres.
 </div>
----
+
 
 ## A PROPOS
 
@@ -36,4 +36,3 @@ La méthode par convergence pondérée est une conséquence d’une étude plus 
 Par ailleurs la version parallélisable de son implémentation dans la classe **`csSQRTFAST`** contient un bug identifié, mais non corrigé pour l’instant, étant donnée la complexité de sa mise en œuvre.
 
 Je ferai aussi la documentation de la bibliothèque très prochainement.
----
