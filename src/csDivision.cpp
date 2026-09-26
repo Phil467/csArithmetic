@@ -162,6 +162,12 @@ char const* CSARITHMETIC_API CSARITHMETIC::makeDivisionQ(char*_a, char* _b, char
     cmp = (nextSize>skipZerosLen&&nextSize<=aSize)&&isaGreaterEqual2(a,b,tmpResSizeForSub,bSize,skipZerosLen);
     if(diff < bSize || (diff==bSize && !cmp) || nextSize>aSize)
     {
+      /* Le chiffre non nul visé par skipZeros n'est pas encore abaissé. */
+      if(nextSize <= skipZerosLen && a[skipZerosLen] != '0' && diff >= bSize)
+      {
+        qid++;
+        continue;
+      }
       if(nextSize < skipZerosLen)
       {
         resSize = qid + skipZerosLen-nextSize+2; // +2 cause nextSize was increased
@@ -334,6 +340,12 @@ char const* CSARITHMETIC_API CSARITHMETIC::makeDivisionQ(char*_a, char* _b, char
     cmp =  (nextSize>skipZerosLen&&nextSize<=aSize)&&isaGreaterEqual2(a,b,tmpResSizeForSub,bSize,skipZerosLen);
     if(diff < bSize || (diff==bSize && !cmp) || nextSize>aSize)
     {
+      if(nextSize <= skipZerosLen && a[skipZerosLen] != '0' && diff >= bSize)
+      {
+        qid++;
+        continue;
+      }
+
       remain = (char*)realloc(remain,diff+1);
       for(size_t i=0; i<diff; i++)
       {
