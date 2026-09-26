@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/Aritmetic/csArithmetic4",
-      "program": "d:/Aritmetic/csArithmetic4/build/Debug/outDebug",
+      "cwd": "${workspaceFolder}",
+      "program": "${workspaceFolder}/build/csArithmetic.dll",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
