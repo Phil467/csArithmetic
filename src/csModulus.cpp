@@ -65,6 +65,8 @@ char const* CSARITHMETIC_API CSARITHMETIC::makeModulusQ(char*a, char* b, char*&r
     {
       if(nextSize <= skipZerosLen && a[skipZerosLen] != '0' && diff >= bSize)
         continue;
+      if(diff == bSize && !cmp && nextSize < aSize && nextSize > skipZerosLen)
+        continue;
 
       remain = (char*)realloc(remain,diff+1);
       remain[diff] = '\0';

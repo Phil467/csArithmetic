@@ -168,6 +168,12 @@ char const* CSARITHMETIC_API CSARITHMETIC::makeDivisionQ(char*_a, char* _b, char
         qid++;
         continue;
       }
+      /* Le dernier chiffre du reste n'est pas encore dans la comparaison. */
+      if(diff == bSize && !cmp && nextSize < aSize && nextSize > skipZerosLen && qid < resSize)
+      {
+        qid++;
+        continue;
+      }
       if(nextSize < skipZerosLen)
       {
         resSize = qid + skipZerosLen-nextSize+2; // +2 cause nextSize was increased
@@ -341,6 +347,11 @@ char const* CSARITHMETIC_API CSARITHMETIC::makeDivisionQ(char*_a, char* _b, char
     if(diff < bSize || (diff==bSize && !cmp) || nextSize>aSize)
     {
       if(nextSize <= skipZerosLen && a[skipZerosLen] != '0' && diff >= bSize)
+      {
+        qid++;
+        continue;
+      }
+      if(diff == bSize && !cmp && nextSize < aSize && nextSize > skipZerosLen && qid < resSize)
       {
         qid++;
         continue;
