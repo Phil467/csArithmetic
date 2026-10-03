@@ -26,25 +26,27 @@ Clarity here is not a lack of structure. It means the structure you see is the s
 
 ## Editions
 
-The folders are numbered so the newest edition is first.
+The edition to use is [csArithmeticOpt-13](csArithmeticOpt-13), next to this file. Older editions keep their original names in [previous](previous). GitHub lists folders alphabetically, so those names are not a chronology. This table is.
 
 | Folder | What changes |
 |---|---|
-| `01-csArithmeticOpt-13` | `csComplex` and `csComplex_q` |
-| `02-csArithmeticOpt-12` | `csInteger` |
-| `03-csArithmeticOpt-11` | Names: `csRational`, `csReal` |
-| `04-csArithmeticOpt-10` | Modular Fourier multiplication, Newton division at large sizes |
-| `05-csArithmeticOpt-9` | Limbs in base 2^32, Toom-3 |
-| `06-csArithmeticOpt-8` | Recursive division |
-| `07-csArithmeticOpt-7` | Karatsuba |
-| `08-csArithmeticOpt-6` | Base 10^19, not carried forward |
-| `09-csArithmeticOpt-5` | Limbs in base 10^9 |
-| `10-csArithmeticOpt-4` … `12-csArithmeticOpt-2` | Tables, stack temporaries, pointer walks |
-| `13-csArithmeticOpt` | Forced inlining of the digit operations, still in base 10 |
+| [csArithmeticOpt-13](csArithmeticOpt-13) | `csComplex` and `csComplex_q` |
+| [previous/csArithmeticOpt-12](previous/csArithmeticOpt-12) | `csInteger` |
+| [previous/csArithmeticOpt-11](previous/csArithmeticOpt-11) | Names: `csRational`, `csReal` |
+| [previous/csArithmeticOpt-10](previous/csArithmeticOpt-10) | Modular Fourier multiplication, Newton division at large sizes |
+| [previous/csArithmeticOpt-9](previous/csArithmeticOpt-9) | Limbs in base 2^32, Toom-3 |
+| [previous/csArithmeticOpt-8](previous/csArithmeticOpt-8) | Recursive division |
+| [previous/csArithmeticOpt-7](previous/csArithmeticOpt-7) | Karatsuba |
+| [previous/csArithmeticOpt-6](previous/csArithmeticOpt-6) | Base 10^19, not carried forward |
+| [previous/csArithmeticOpt-5](previous/csArithmeticOpt-5) | Limbs in base 10^9 |
+| [previous/csArithmeticOpt-4](previous/csArithmeticOpt-4) … [previous/csArithmeticOpt-2](previous/csArithmeticOpt-2) | Tables, stack temporaries, pointer walks |
+| [previous/csArithmeticOpt](previous/csArithmeticOpt) | Forced inlining of the digit operations, still in base 10 |
 
 Each folder has a `VERSION.md` with the measurements that justified the change. For new work, use edition 13. Earlier editions stay so a result can be tied to the code that produced it.
 
-Edition 13 also ships compiled static libraries in `01-csArithmeticOpt-13/build/`: Windows (MinGW, UCRT64) and Android arm64, for [Cxxdroid](01-csArithmeticOpt-13/build/android/CXXDROID.md).
+A later edition is added under its own name, and edition 13 moves into `previous`. The folders already there keep their names.
+
+Edition 13 also ships compiled static libraries in `csArithmeticOpt-13/build/`: Windows (MinGW, UCRT64) and Android arm64, for [Cxxdroid](csArithmeticOpt-13/build/android/CXXDROID.md).
 
 ## Not in these editions
 
@@ -93,4 +95,4 @@ csArithmeticOpt reprend csArithmetic en gardant la formule visible. Là où d'au
 a = (b * c + d) / e - f;
 ```
 
-pour un entier, un rationnel, un réel ou un complexe. Les algorithmes rapides (Karatsuba, Toom-3, Fourier, division de Newton) sont sous les opérateurs. Le détail de chaque édition est dans son `VERSION.md`. L'édition à utiliser est la 13.
+pour un entier, un rationnel, un réel ou un complexe. Les algorithmes rapides (Karatsuba, Toom-3, Fourier, division de Newton) sont sous les opérateurs. Le détail de chaque édition est dans son `VERSION.md`. L'édition à utiliser est [csArithmeticOpt-13](csArithmeticOpt-13). Les éditions précédentes sont dans [previous](previous), sous leur nom d'origine.

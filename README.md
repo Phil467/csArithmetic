@@ -1,12 +1,12 @@
 # csArithmetic
 
-The original library is in [base](base). The optimized editions are in [opt](opt), with the newest edition first.
+The original library is in [base](base). The optimized editions are in [opt](opt). The current one is [opt/csArithmeticOpt-13](opt/csArithmeticOpt-13). The earlier ones are in [opt/previous](opt/previous).
 
 | | |
 |---|---|
 | [base](base) | Educational edition: reals and rationals as numerical strings |
-| [opt](opt) | Editions 13 down to 1. Edition 13 is the one to use |
+| [opt](opt) | Edition 13, the one to use. Earlier editions are in [opt/previous](opt/previous) |
 
 ## À propos
 
-La version d’origine est dans [base](base). Les éditions optimisées sont dans [opt](opt), la plus récente en premier.
+La version d’origine est dans [base](base). L’édition optimisée à utiliser est [opt/csArithmeticOpt-13](opt/csArithmeticOpt-13). Les précédentes sont dans [opt/previous](opt/previous).
