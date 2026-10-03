@@ -26,23 +26,25 @@ Clarity here is not a lack of structure. It means the structure you see is the s
 
 ## Editions
 
+The folders are numbered so the newest edition is first.
+
 | Folder | What changes |
 |---|---|
-| `csArithmeticOpt` | Forced inlining of the digit operations, still in base 10 |
-| `csArithmeticOpt-2` … `4` | Tables, stack temporaries, pointer walks |
-| `csArithmeticOpt-5` | Limbs in base 10^9 |
-| `csArithmeticOpt-6` | Base 10^19, not carried forward |
-| `csArithmeticOpt-7` | Karatsuba |
-| `csArithmeticOpt-8` | Recursive division |
-| `csArithmeticOpt-9` | Limbs in base 2^32, Toom-3 |
-| `csArithmeticOpt-10` | Modular Fourier multiplication, Newton division at large sizes |
-| `csArithmeticOpt-11` | Names: `csRational`, `csReal` |
-| `csArithmeticOpt-12` | `csInteger` |
-| `csArithmeticOpt-13` | `csComplex` and `csComplex_q` |
+| `01-csArithmeticOpt-13` | `csComplex` and `csComplex_q` |
+| `02-csArithmeticOpt-12` | `csInteger` |
+| `03-csArithmeticOpt-11` | Names: `csRational`, `csReal` |
+| `04-csArithmeticOpt-10` | Modular Fourier multiplication, Newton division at large sizes |
+| `05-csArithmeticOpt-9` | Limbs in base 2^32, Toom-3 |
+| `06-csArithmeticOpt-8` | Recursive division |
+| `07-csArithmeticOpt-7` | Karatsuba |
+| `08-csArithmeticOpt-6` | Base 10^19, not carried forward |
+| `09-csArithmeticOpt-5` | Limbs in base 10^9 |
+| `10-csArithmeticOpt-4` … `12-csArithmeticOpt-2` | Tables, stack temporaries, pointer walks |
+| `13-csArithmeticOpt` | Forced inlining of the digit operations, still in base 10 |
 
 Each folder has a `VERSION.md` with the measurements that justified the change. For new work, use edition 13. Earlier editions stay so a result can be tied to the code that produced it.
 
-Edition 13 also ships compiled static libraries in `csArithmeticOpt-13/build/`: Windows (MinGW, UCRT64) and Android arm64, for [Cxxdroid](csArithmeticOpt-13/build/android/CXXDROID.md).
+Edition 13 also ships compiled static libraries in `01-csArithmeticOpt-13/build/`: Windows (MinGW, UCRT64) and Android arm64, for [Cxxdroid](01-csArithmeticOpt-13/build/android/CXXDROID.md).
 
 ## Not in these editions
 

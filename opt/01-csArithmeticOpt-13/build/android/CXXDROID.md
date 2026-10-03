@@ -6,7 +6,7 @@ Cxxdroid compiles your program on the phone with the NDK. The headers are not in
 
 ## Files to copy into the Cxxdroid project
 
-From `csArithmeticOpt-13/`:
+From `01-csArithmeticOpt-13/`:
 
 - `csArithmetic.h`
 - `csArithmeticOpt13.h`
