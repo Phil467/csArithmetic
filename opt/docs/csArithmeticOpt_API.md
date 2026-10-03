@@ -44,8 +44,13 @@ Each entry is the declaration in `csArithmeticOpt13.h` and the documentation com
 csInteger absolute() const;
 ```
 
-@brief Returns the absolute value.
-@return Non-negative integer.
+**Description**
+
+Returns the absolute value.
+
+**Returns**
+
+Non-negative integer.
 
 ---
 
@@ -55,10 +60,18 @@ csInteger absolute() const;
 csInteger quotientAndRemainder(const csInteger& divisor, csInteger& remainder) const;
 ```
 
-@brief Quotient and remainder of Euclidean division truncated toward zero.
-@param divisor Divisor.
-@param remainder Receives the remainder, with the sign of the dividend.
-@return Quotient.
+**Description**
+
+Quotient and remainder of Euclidean division truncated toward zero.
+
+**Parameters**
+
+- **divisor** — Divisor.
+- **remainder** — Receives the remainder, with the sign of the dividend.
+
+**Returns**
+
+Quotient.
 
 ---
 
@@ -68,9 +81,17 @@ csInteger quotientAndRemainder(const csInteger& divisor, csInteger& remainder) c
 csInteger power(size_t exponent) const;
 ```
 
-@brief Raises the integer to a non-negative integer power.
-@param exponent Exponent.
-@return Resulting integer. Zero to the power zero is one.
+**Description**
+
+Raises the integer to a non-negative integer power.
+
+**Parameters**
+
+- **exponent** — Exponent.
+
+**Returns**
+
+Resulting integer. Zero to the power zero is one.
 
 ---
 
@@ -82,8 +103,13 @@ csInteger power(size_t exponent) const;
 csRational toRational() const;
 ```
 
-@brief Converts the integer to a rational with denominator one.
-@return Resulting rational.
+**Description**
+
+Converts the integer to a rational with denominator one.
+
+**Returns**
+
+Resulting rational.
 
 ---
 
@@ -93,9 +119,17 @@ csRational toRational() const;
 csRational* csPtrAlloc_q(size_t nb);
 ```
 
-@brief Allocates an array of rationals.
-@param nb Number of elements.
-@return Pointer to the resulting rational or array.
+**Description**
+
+Allocates an array of rationals.
+
+**Parameters**
+
+- **nb** — Number of elements.
+
+**Returns**
+
+Pointer to the resulting rational or array.
 
 ---
 
@@ -105,10 +139,18 @@ csRational* csPtrAlloc_q(size_t nb);
 csRational* csPtrAlloc_q(size_t nb, csRational init);
 ```
 
-@brief Allocates an array of rationals.
-@param nb Number of elements.
-@param init Initial fill character.
-@return Pointer to the resulting rational or array.
+**Description**
+
+Allocates an array of rationals.
+
+**Parameters**
+
+- **nb** — Number of elements.
+- **init** — Initial fill character.
+
+**Returns**
+
+Pointer to the resulting rational or array.
 
 ---
 
@@ -118,7 +160,9 @@ csRational* csPtrAlloc_q(size_t nb, csRational init);
 csRational norm();
 ```
 
-@brief Returns the squared modulus, a² + b², as an exact rational.
+**Description**
+
+Returns the squared modulus, a² + b², as an exact rational.
 
 ---
 
@@ -128,10 +172,18 @@ csRational norm();
 csRational pow(csRational a, size_t p);
 ```
 
-@brief Raises a rational to an integer power.
-@param a First operand.
-@param p Power or degree.
-@return Resulting rational.
+**Description**
+
+Raises a rational to an integer power.
+
+**Parameters**
+
+- **a** — First operand.
+- **p** — Power or degree.
+
+**Returns**
+
+Resulting rational.
 
 ---
 
@@ -143,9 +195,17 @@ csRational pow(csRational a, size_t p);
 csReal* csPtrAlloc_r(size_t nb);
 ```
 
-@brief Allocates an array of reals.
-@param nb Number of elements.
-@return Pointer to the resulting real or array.
+**Description**
+
+Allocates an array of reals.
+
+**Parameters**
+
+- **nb** — Number of elements.
+
+**Returns**
+
+Pointer to the resulting real or array.
 
 ---
 
@@ -155,10 +215,18 @@ csReal* csPtrAlloc_r(size_t nb);
 csReal* csPtrAlloc_r(size_t nb, csReal init);
 ```
 
-@brief Allocates an array of reals.
-@param nb Number of elements.
-@param init Initial fill character.
-@return Pointer to the resulting real or array.
+**Description**
+
+Allocates an array of reals.
+
+**Parameters**
+
+- **nb** — Number of elements.
+- **init** — Initial fill character.
+
+**Returns**
+
+Pointer to the resulting real or array.
 
 ---
 
@@ -168,11 +236,16 @@ csReal* csPtrAlloc_r(size_t nb, csReal init);
 csReal(const char* mantissa, int exponent, bool sign, int repeat);
 ```
 
-@brief Builds a real by repeating the mantissa.
-@param mantissa Decimal text of the mantissa.
-@param exponent Decimal exponent.
-@param sign Sign. Zero when the number is positive.
-@param repeat Number of times the mantissa is repeated. A value below 1 yields zero.
+**Description**
+
+Builds a real by repeating the mantissa.
+
+**Parameters**
+
+- **mantissa** — Decimal text of the mantissa.
+- **exponent** — Decimal exponent.
+- **sign** — Sign. Zero when the number is positive.
+- **repeat** — Number of times the mantissa is repeated. A value below 1 yields zero.
 
 ---
 
@@ -182,12 +255,17 @@ csReal(const char* mantissa, int exponent, bool sign, int repeat);
 csReal(const char* mantissa, int exponent, bool sign, int repeat, int pos);
 ```
 
-@brief Builds a real by repeating a section of the mantissa.
-@param mantissa Decimal text of the mantissa.
-@param exponent Decimal exponent.
-@param sign Sign. Zero when the number is positive.
-@param repeat Number of times the section is repeated. A value below 1 yields zero.
-@param pos Repeated section. Positive: from the first character through the pos-th, then the rest. Negative: from the pos-th character from the end through the last character, placed at the end.
+**Description**
+
+Builds a real by repeating a section of the mantissa.
+
+**Parameters**
+
+- **mantissa** — Decimal text of the mantissa.
+- **exponent** — Decimal exponent.
+- **sign** — Sign. Zero when the number is positive.
+- **repeat** — Number of times the section is repeated. A value below 1 yields zero.
+- **pos** — Repeated section. Positive: from the first character through the pos-th, then the rest. Negative: from the pos-th character from the end through the last character, placed at the end.
 
 ---
 
@@ -197,13 +275,18 @@ csReal(const char* mantissa, int exponent, bool sign, int repeat, int pos);
 csReal(const char* mantissa, int exponent, bool sign, int repeat, int length, int index);
 ```
 
-@brief Builds a real by repeating a slice of the mantissa.
-@param mantissa Decimal text of the mantissa.
-@param exponent Decimal exponent.
-@param sign Sign. Zero when the number is positive.
-@param repeat Number of times the slice is repeated. A value below 1 yields zero.
-@param length Length of the slice, in characters.
-@param index Start index of the slice, from zero.
+**Description**
+
+Builds a real by repeating a slice of the mantissa.
+
+**Parameters**
+
+- **mantissa** — Decimal text of the mantissa.
+- **exponent** — Decimal exponent.
+- **sign** — Sign. Zero when the number is positive.
+- **repeat** — Number of times the slice is repeated. A value below 1 yields zero.
+- **length** — Length of the slice, in characters.
+- **index** — Start index of the slice, from zero.
 
 ---
 
@@ -213,8 +296,13 @@ csReal(const char* mantissa, int exponent, bool sign, int repeat, int length, in
 csReal(double value);
 ```
 
-@brief Builds a real from a double.
-@param value Value to convert to decimal.
+**Description**
+
+Builds a real from a double.
+
+**Parameters**
+
+- **value** — Value to convert to decimal.
 
 ---
 
@@ -224,8 +312,13 @@ csReal(double value);
 csReal abs();
 ```
 
-@brief Returns the absolute value.
-@return Resulting real.
+**Description**
+
+Returns the absolute value.
+
+**Returns**
+
+Resulting real.
 
 ---
 
@@ -235,9 +328,17 @@ csReal abs();
 csReal operator*(double a);
 ```
 
-@brief Multiplies by a double, including values between 0 and 1.
-@param a Decimal factor.
-@return Resulting real.
+**Description**
+
+Multiplies by a double, including values between 0 and 1.
+
+**Parameters**
+
+- **a** — Decimal factor.
+
+**Returns**
+
+Resulting real.
 
 ---
 
@@ -247,9 +348,17 @@ csReal operator*(double a);
 csReal integerQuotient(long n);
 ```
 
-@brief Returns the integer quotient of division by @p n, truncated toward zero.
-@param n Integer divisor.
-@return Integer quotient, with a zero exponent.
+**Description**
+
+Returns the integer quotient of division by `n`, truncated toward zero.
+
+**Parameters**
+
+- **n** — Integer divisor.
+
+**Returns**
+
+Integer quotient, with a zero exponent.
 
 ---
 
@@ -259,8 +368,13 @@ csReal integerQuotient(long n);
 csReal integer();
 ```
 
-@brief Returns the integer part, truncated toward zero.
-@return Integer part, with a zero exponent.
+**Description**
+
+Returns the integer part, truncated toward zero.
+
+**Returns**
+
+Integer part, with a zero exponent.
 
 ---
 
@@ -270,10 +384,18 @@ csReal integer();
 csReal mantissaSection(size_t first, size_t last);
 ```
 
-@brief Returns a section of the mantissa.
-@param first First index, inclusive.
-@param last Last index, exclusive.
-@return Resulting real.
+**Description**
+
+Returns a section of the mantissa.
+
+**Parameters**
+
+- **first** — First index, inclusive.
+- **last** — Last index, exclusive.
+
+**Returns**
+
+Resulting real.
 
 ---
 
@@ -283,7 +405,9 @@ csReal mantissaSection(size_t first, size_t last);
 csReal norm();
 ```
 
-@brief Returns the squared modulus, a² + b².
+**Description**
+
+Returns the squared modulus, a² + b².
 
 ---
 
@@ -293,7 +417,9 @@ csReal norm();
 csReal abs();
 ```
 
-@brief Returns the modulus.
+**Description**
+
+Returns the modulus.
 
 ---
 
@@ -303,7 +429,9 @@ csReal abs();
 csReal abs();
 ```
 
-@brief Returns the modulus as a real.
+**Description**
+
+Returns the modulus as a real.
 
 ---
 
@@ -313,10 +441,18 @@ csReal abs();
 csReal* csSortMinR(csReal* rn, size_t size);
 ```
 
-@brief Sorts reals into increasing order.
-@param rn Array of reals.
-@param size Requested size.
-@return Pointer to the resulting real or array.
+**Description**
+
+Sorts reals into increasing order.
+
+**Parameters**
+
+- **rn** — Array of reals.
+- **size** — Requested size.
+
+**Returns**
+
+Pointer to the resulting real or array.
 
 ---
 
@@ -328,7 +464,9 @@ csReal* csSortMinR(csReal* rn, size_t size);
 csComplex conjugate();
 ```
 
-@brief Returns the conjugate a - bi.
+**Description**
+
+Returns the conjugate a - bi.
 
 ---
 
@@ -338,7 +476,9 @@ csComplex conjugate();
 csComplex power(long exponent);
 ```
 
-@brief Integer power. 0^0 is 1. A negative exponent takes the reciprocal.
+**Description**
+
+Integer power. 0^0 is 1. A negative exponent takes the reciprocal.
 
 ---
 
@@ -348,7 +488,9 @@ csComplex power(long exponent);
 csComplex reciprocal();
 ```
 
-@brief Returns the reciprocal.
+**Description**
+
+Returns the reciprocal.
 
 ---
 
@@ -360,7 +502,9 @@ csComplex reciprocal();
 csComplex_q conjugate();
 ```
 
-@brief Returns the conjugate a - bi.
+**Description**
+
+Returns the conjugate a - bi.
 
 ---
 
@@ -370,7 +514,9 @@ csComplex_q conjugate();
 csComplex_q power(long exponent);
 ```
 
-@brief Integer power. 0^0 is 1. A negative exponent takes the reciprocal.
+**Description**
+
+Integer power. 0^0 is 1. A negative exponent takes the reciprocal.
 
 ---
 
@@ -380,7 +526,9 @@ csComplex_q power(long exponent);
 csComplex_q reciprocal();
 ```
 
-@brief Returns the reciprocal.
+**Description**
+
+Returns the reciprocal.
 
 ---
 
@@ -392,9 +540,17 @@ csComplex_q reciprocal();
 template<class T> CS_FORCE_INLINE T* csAlloc(size_t n);
 ```
 
-@brief Allocates a memory block.
-@param n Number of elements.
-@return Result.
+**Description**
+
+Allocates a memory block.
+
+**Parameters**
+
+- **n** — Number of elements.
+
+**Returns**
+
+Result.
 
 ---
 
@@ -404,10 +560,18 @@ template<class T> CS_FORCE_INLINE T* csAlloc(size_t n);
 template<class T> CS_FORCE_INLINE T* csAlloc(size_t n, T init);
 ```
 
-@brief Allocates a memory block.
-@param n Number of elements.
-@param init Initial fill character.
-@return Result.
+**Description**
+
+Allocates a memory block.
+
+**Parameters**
+
+- **n** — Number of elements.
+- **init** — Initial fill character.
+
+**Returns**
+
+Result.
 
 ---
 
@@ -417,10 +581,18 @@ template<class T> CS_FORCE_INLINE T* csAlloc(size_t n, T init);
 template<class T> CS_FORCE_INLINE T* csAlloc2(size_t n, T init);
 ```
 
-@brief Allocates a two-dimensional memory block.
-@param n Number of elements.
-@param init Initial fill character.
-@return Result.
+**Description**
+
+Allocates a two-dimensional memory block.
+
+**Parameters**
+
+- **n** — Number of elements.
+- **init** — Initial fill character.
+
+**Returns**
+
+Result.
 
 ---
 
@@ -430,11 +602,19 @@ template<class T> CS_FORCE_INLINE T* csAlloc2(size_t n, T init);
 char* CSARITHMETIC_API csAllocCharPtr(size_t n, size_t n1, char init);
 ```
 
-@brief Allocates a character array.
-@param n Number of elements.
-@param n1 Size of the second dimension.
-@param init Initial fill character.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Allocates a character array.
+
+**Parameters**
+
+- **n** — Number of elements.
+- **n1** — Size of the second dimension.
+- **init** — Initial fill character.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -444,10 +624,18 @@ char* CSARITHMETIC_API csAllocCharPtr(size_t n, size_t n1, char init);
 char* CSARITHMETIC_API csAllocCharPtr(size_t n, char init);
 ```
 
-@brief Allocates a character array.
-@param n Number of elements.
-@param init Initial fill character.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Allocates a character array.
+
+**Parameters**
+
+- **n** — Number of elements.
+- **init** — Initial fill character.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -457,10 +645,18 @@ char* CSARITHMETIC_API csAllocCharPtr(size_t n, char init);
 void CSARITHMETIC_API csReallocString(char** str, size_t size);
 ```
 
-@brief Reallocates a character string.
-@param str Text to modify.
-@param size Requested size.
-@return Result.
+**Description**
+
+Reallocates a character string.
+
+**Parameters**
+
+- **str** — Text to modify.
+- **size** — Requested size.
+
+**Returns**
+
+Result.
 
 ---
 
@@ -470,12 +666,20 @@ void CSARITHMETIC_API csReallocString(char** str, size_t size);
 void CSARITHMETIC_API csReallocString(char** str, size_t size, size_t newSize, char cFill);
 ```
 
-@brief Reallocates a character string.
-@param str Text to modify.
-@param size Requested size.
-@param newSize New size.
-@param cFill Fill character.
-@return Result.
+**Description**
+
+Reallocates a character string.
+
+**Parameters**
+
+- **str** — Text to modify.
+- **size** — Requested size.
+- **newSize** — New size.
+- **cFill** — Fill character.
+
+**Returns**
+
+Result.
 
 ---
 
@@ -485,10 +689,18 @@ void CSARITHMETIC_API csReallocString(char** str, size_t size, size_t newSize, c
 char* CSARITHMETIC_API newString(char*cstr, size_t size);
 ```
 
-@brief Copies a text into a new buffer.
-@param cstr Source text.
-@param size Requested size.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Copies a text into a new buffer.
+
+**Parameters**
+
+- **cstr** — Source text.
+- **size** — Requested size.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -498,10 +710,18 @@ char* CSARITHMETIC_API newString(char*cstr, size_t size);
 char* CSARITHMETIC_API newString(const char*cstr, size_t size);
 ```
 
-@brief Copies a text into a new buffer.
-@param cstr Source text.
-@param size Requested size.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Copies a text into a new buffer.
+
+**Parameters**
+
+- **cstr** — Source text.
+- **size** — Requested size.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -511,11 +731,19 @@ char* CSARITHMETIC_API newString(const char*cstr, size_t size);
 char* CSARITHMETIC_API newString(const char*cstr, size_t begin, size_t end);
 ```
 
-@brief Copies a text into a new buffer.
-@param cstr Source text.
-@param begin Start index, inclusive.
-@param end End index, exclusive.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Copies a text into a new buffer.
+
+**Parameters**
+
+- **cstr** — Source text.
+- **begin** — Start index, inclusive.
+- **end** — End index, exclusive.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -525,9 +753,17 @@ char* CSARITHMETIC_API newString(const char*cstr, size_t begin, size_t end);
 char* CSARITHMETIC_API newString(const char*cstr);
 ```
 
-@brief Copies a text into a new buffer.
-@param cstr Source text.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Copies a text into a new buffer.
+
+**Parameters**
+
+- **cstr** — Source text.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -537,10 +773,18 @@ char* CSARITHMETIC_API newString(const char*cstr);
 char* intToString(int nb, size_t& sz);
 ```
 
-@brief Converts a signed integer to text.
-@param nb Number of elements.
-@param sz Receives the size of the produced text.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Converts a signed integer to text.
+
+**Parameters**
+
+- **nb** — Number of elements.
+- **sz** — Receives the size of the produced text.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -550,10 +794,18 @@ char* intToString(int nb, size_t& sz);
 char* uLongToString(size_t nb, size_t& sz);
 ```
 
-@brief Converts an unsigned integer to text.
-@param nb Number of elements.
-@param sz Receives the size of the produced text.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Converts an unsigned integer to text.
+
+**Parameters**
+
+- **nb** — Number of elements.
+- **sz** — Receives the size of the produced text.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -563,10 +815,15 @@ char* uLongToString(size_t nb, size_t& sz);
 void shiftRight(char*& nb, size_t size, size_t nShift);
 ```
 
-@brief Shifts the digits of a text to the right.
-@param nb Number of elements.
-@param size Requested size.
-@param nShift Number of shift positions.
+**Description**
+
+Shifts the digits of a text to the right.
+
+**Parameters**
+
+- **nb** — Number of elements.
+- **size** — Requested size.
+- **nShift** — Number of shift positions.
 
 ---
 
@@ -576,11 +833,19 @@ void shiftRight(char*& nb, size_t size, size_t nShift);
 char* shiftRightCopy(char* nb, size_t nbSize, size_t nbCopySize);
 ```
 
-@brief Returns a copy of the text shifted to the right.
-@param nb Number of elements.
-@param nbSize Size of the number.
-@param nbCopySize Size of the copy.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Returns a copy of the text shifted to the right.
+
+**Parameters**
+
+- **nb** — Number of elements.
+- **nbSize** — Size of the number.
+- **nbCopySize** — Size of the copy.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -590,10 +855,15 @@ char* shiftRightCopy(char* nb, size_t nbSize, size_t nbCopySize);
 void shiftLeft(char*& nb, size_t size, size_t nShift);
 ```
 
-@brief Shifts the digits of a text to the left.
-@param nb Number of elements.
-@param size Requested size.
-@param nShift Number of shift positions.
+**Description**
+
+Shifts the digits of a text to the left.
+
+**Parameters**
+
+- **nb** — Number of elements.
+- **size** — Requested size.
+- **nShift** — Number of shift positions.
 
 ---
 
@@ -603,11 +873,16 @@ void shiftLeft(char*& nb, size_t size, size_t nShift);
 void shiftLeftCopy(char* nb, char*&nbCopy, size_t nbSize, size_t nbCopyPos);
 ```
 
-@brief Copies a text while shifting it to the left.
-@param nb Number of elements.
-@param nbCopy Produced copy.
-@param nbSize Size of the number.
-@param nbCopyPos Write position in the copy.
+**Description**
+
+Copies a text while shifting it to the left.
+
+**Parameters**
+
+- **nb** — Number of elements.
+- **nbCopy** — Produced copy.
+- **nbSize** — Size of the number.
+- **nbCopyPos** — Write position in the copy.
 
 ---
 
@@ -617,10 +892,15 @@ void shiftLeftCopy(char* nb, char*&nbCopy, size_t nbSize, size_t nbCopyPos);
 void skipZeros(char* a, size_t aSize, size_t& skipLen);
 ```
 
-@brief Skips the leading zeros of a text.
-@param a First operand.
-@param aSize Number of digits of the first text.
-@param skipLen Number of skipped zeros.
+**Description**
+
+Skips the leading zeros of a text.
+
+**Parameters**
+
+- **a** — First operand.
+- **aSize** — Number of digits of the first text.
+- **skipLen** — Number of skipped zeros.
 
 ---
 
@@ -630,11 +910,16 @@ void skipZeros(char* a, size_t aSize, size_t& skipLen);
 void skipZeros2(char* a, size_t aSize, size_t& skipLen, size_t&incr);
 ```
 
-@brief Skips the leading zeros and measures the step.
-@param a First operand.
-@param aSize Number of digits of the first text.
-@param skipLen Number of skipped zeros.
-@param incr Step associated with the skipped zeros.
+**Description**
+
+Skips the leading zeros and measures the step.
+
+**Parameters**
+
+- **a** — First operand.
+- **aSize** — Number of digits of the first text.
+- **skipLen** — Number of skipped zeros.
+- **incr** — Step associated with the skipped zeros.
 
 ---
 
@@ -644,12 +929,20 @@ void skipZeros2(char* a, size_t aSize, size_t& skipLen, size_t&incr);
 bool isaGreater(char* a,char* b,size_t opSize, size_t ibegin);
 ```
 
-@brief Reports whether the first text is greater than the second.
-@param a First operand.
-@param b Second operand.
-@param opSize Number of aligned digits.
-@param ibegin Index of the first digit compared.
-@return True when the condition holds.
+**Description**
+
+Reports whether the first text is greater than the second.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **opSize** — Number of aligned digits.
+- **ibegin** — Index of the first digit compared.
+
+**Returns**
+
+True when the condition holds.
 
 ---
 
@@ -659,12 +952,20 @@ bool isaGreater(char* a,char* b,size_t opSize, size_t ibegin);
 bool isaGreaterEqual(char* a,char* b,size_t opSize, size_t ibegin);
 ```
 
-@brief Reports whether the first text is greater than or equal to the second.
-@param a First operand.
-@param b Second operand.
-@param opSize Number of aligned digits.
-@param ibegin Index of the first digit compared.
-@return True when the condition holds.
+**Description**
+
+Reports whether the first text is greater than or equal to the second.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **opSize** — Number of aligned digits.
+- **ibegin** — Index of the first digit compared.
+
+**Returns**
+
+True when the condition holds.
 
 ---
 
@@ -674,13 +975,21 @@ bool isaGreaterEqual(char* a,char* b,size_t opSize, size_t ibegin);
 bool isaGreater2(char* a,char* b,size_t aSize,size_t bSize, size_t ibegin);
 ```
 
-@brief Reports whether the first text is greater than the second, at different sizes.
-@param a First operand.
-@param b Second operand.
-@param aSize Number of digits of the first text.
-@param bSize Number of digits of the second text.
-@param ibegin Index of the first digit compared.
-@return True when the condition holds.
+**Description**
+
+Reports whether the first text is greater than the second, at different sizes.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **aSize** — Number of digits of the first text.
+- **bSize** — Number of digits of the second text.
+- **ibegin** — Index of the first digit compared.
+
+**Returns**
+
+True when the condition holds.
 
 ---
 
@@ -690,13 +999,21 @@ bool isaGreater2(char* a,char* b,size_t aSize,size_t bSize, size_t ibegin);
 bool isaGreaterEqual2(char* a,char* b,size_t aSize, size_t bSize, size_t ibegin);
 ```
 
-@brief Reports whether the first text is greater than or equal to the second, at different sizes.
-@param a First operand.
-@param b Second operand.
-@param aSize Number of digits of the first text.
-@param bSize Number of digits of the second text.
-@param ibegin Index of the first digit compared.
-@return True when the condition holds.
+**Description**
+
+Reports whether the first text is greater than or equal to the second, at different sizes.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **aSize** — Number of digits of the first text.
+- **bSize** — Number of digits of the second text.
+- **ibegin** — Index of the first digit compared.
+
+**Returns**
+
+True when the condition holds.
 
 ---
 
@@ -706,11 +1023,19 @@ bool isaGreaterEqual2(char* a,char* b,size_t aSize, size_t bSize, size_t ibegin)
 int getReadySub(char*& a,char*& b, size_t&opSize);
 ```
 
-@brief Prepares two texts for a subtraction.
-@param a First operand.
-@param b Second operand.
-@param opSize Number of aligned digits.
-@return Computed value.
+**Description**
+
+Prepares two texts for a subtraction.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **opSize** — Number of aligned digits.
+
+**Returns**
+
+Computed value.
 
 ---
 
@@ -720,13 +1045,21 @@ int getReadySub(char*& a,char*& b, size_t&opSize);
 bool getReadySub2(const char* a0,const char* b0, char*& a, char*& b, size_t& opSize);
 ```
 
-@brief Prepares two source texts for a subtraction.
-@param a0 Original text of the first operand.
-@param b0 Original text of the second operand.
-@param a First operand.
-@param b Second operand.
-@param opSize Number of aligned digits.
-@return True when the condition holds.
+**Description**
+
+Prepares two source texts for a subtraction.
+
+**Parameters**
+
+- **a0** — Original text of the first operand.
+- **b0** — Original text of the second operand.
+- **a** — First operand.
+- **b** — Second operand.
+- **opSize** — Number of aligned digits.
+
+**Returns**
+
+True when the condition holds.
 
 ---
 
@@ -736,15 +1069,23 @@ bool getReadySub2(const char* a0,const char* b0, char*& a, char*& b, size_t& opS
 bool getReadySub3(const char* a0,const char* b0, char*& a, char*& b, size_t aSize, size_t bSize, size_t&opSize);
 ```
 
-@brief Prepares two texts of different sizes for a subtraction.
-@param a0 Original text of the first operand.
-@param b0 Original text of the second operand.
-@param a First operand.
-@param b Second operand.
-@param aSize Number of digits of the first text.
-@param bSize Number of digits of the second text.
-@param opSize Number of aligned digits.
-@return True when the condition holds.
+**Description**
+
+Prepares two texts of different sizes for a subtraction.
+
+**Parameters**
+
+- **a0** — Original text of the first operand.
+- **b0** — Original text of the second operand.
+- **a** — First operand.
+- **b** — Second operand.
+- **aSize** — Number of digits of the first text.
+- **bSize** — Number of digits of the second text.
+- **opSize** — Number of aligned digits.
+
+**Returns**
+
+True when the condition holds.
 
 ---
 
@@ -754,10 +1095,15 @@ bool getReadySub3(const char* a0,const char* b0, char*& a, char*& b, size_t aSiz
 void getReady(char*& a,char*& b, size_t& opSize);
 ```
 
-@brief Aligns two texts before an operation.
-@param a First operand.
-@param b Second operand.
-@param opSize Number of aligned digits.
+**Description**
+
+Aligns two texts before an operation.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **opSize** — Number of aligned digits.
 
 ---
 
@@ -767,12 +1113,17 @@ void getReady(char*& a,char*& b, size_t& opSize);
 void getReady2(const char* a0,const char* b0, char*& a, char*& b, size_t& opSize);
 ```
 
-@brief Aligns two source texts before an operation.
-@param a0 Original text of the first operand.
-@param b0 Original text of the second operand.
-@param a First operand.
-@param b Second operand.
-@param opSize Number of aligned digits.
+**Description**
+
+Aligns two source texts before an operation.
+
+**Parameters**
+
+- **a0** — Original text of the first operand.
+- **b0** — Original text of the second operand.
+- **a** — First operand.
+- **b** — Second operand.
+- **opSize** — Number of aligned digits.
 
 ---
 
@@ -782,10 +1133,18 @@ void getReady2(const char* a0,const char* b0, char*& a, char*& b, size_t& opSize
 bool removeFrontZeros(char*& a, size_t& size);
 ```
 
-@brief Removes leading zeros from a text.
-@param a First operand.
-@param size Requested size.
-@return True when the condition holds.
+**Description**
+
+Removes leading zeros from a text.
+
+**Parameters**
+
+- **a** — First operand.
+- **size** — Requested size.
+
+**Returns**
+
+True when the condition holds.
 
 ---
 
@@ -795,10 +1154,15 @@ bool removeFrontZeros(char*& a, size_t& size);
 void removeLeft(char*& nb, size_t& size, size_t remLen);
 ```
 
-@brief Removes characters from the left of a text.
-@param nb Number of elements.
-@param size Requested size.
-@param remLen Number of characters removed.
+**Description**
+
+Removes characters from the left of a text.
+
+**Parameters**
+
+- **nb** — Number of elements.
+- **size** — Requested size.
+- **remLen** — Number of characters removed.
 
 ---
 
@@ -808,10 +1172,15 @@ void removeLeft(char*& nb, size_t& size, size_t remLen);
 void removeRight(char*& nb, size_t& size, size_t remLen);
 ```
 
-@brief Removes characters from the right of a text.
-@param nb Number of elements.
-@param size Requested size.
-@param remLen Number of characters removed.
+**Description**
+
+Removes characters from the right of a text.
+
+**Parameters**
+
+- **nb** — Number of elements.
+- **size** — Requested size.
+- **remLen** — Number of characters removed.
 
 ---
 
@@ -821,10 +1190,15 @@ void removeRight(char*& nb, size_t& size, size_t remLen);
 void addFrontZeros(char*& a, size_t& size, size_t nZeros);
 ```
 
-@brief Adds leading zeros to a text.
-@param a First operand.
-@param size Requested size.
-@param nZeros Number of zeros added.
+**Description**
+
+Adds leading zeros to a text.
+
+**Parameters**
+
+- **a** — First operand.
+- **size** — Requested size.
+- **nZeros** — Number of zeros added.
 
 ---
 
@@ -834,10 +1208,15 @@ void addFrontZeros(char*& a, size_t& size, size_t nZeros);
 void fillString(char*& str, const char* cstr, size_t size);
 ```
 
-@brief Copies a text into an already allocated buffer.
-@param str Text to modify.
-@param cstr Source text.
-@param size Requested size.
+**Description**
+
+Copies a text into an already allocated buffer.
+
+**Parameters**
+
+- **str** — Text to modify.
+- **cstr** — Source text.
+- **size** — Requested size.
 
 ---
 
@@ -847,10 +1226,18 @@ void fillString(char*& str, const char* cstr, size_t size);
 char* filledString(const char* cstr, size_t size);
 ```
 
-@brief Returns a text padded to the requested size.
-@param cstr Source text.
-@param size Requested size.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Returns a text padded to the requested size.
+
+**Parameters**
+
+- **cstr** — Source text.
+- **size** — Requested size.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -860,10 +1247,18 @@ char* filledString(const char* cstr, size_t size);
 CS_INLINE static char* csLimbsToDec(const void* raw, size_t n);
 ```
 
-@brief Converts limbs to decimal text.
-@param raw Parameter @p raw.
-@param n Number of elements.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Converts limbs to decimal text.
+
+**Parameters**
+
+- **raw** — Parameter `raw`.
+- **n** — Number of elements.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -873,9 +1268,17 @@ CS_INLINE static char* csLimbsToDec(const void* raw, size_t n);
 char* formatReal(const csReal& a);
 ```
 
-@brief Prepares the display text of a real.
-@param a First operand.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Prepares the display text of a real.
+
+**Parameters**
+
+- **a** — First operand.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -885,8 +1288,13 @@ char* formatReal(const csReal& a);
 void setRealPrecision(int precision);
 ```
 
-@brief Sets the precision used for reals.
-@param precision Requested precision, in digits.
+**Description**
+
+Sets the precision used for reals.
+
+**Parameters**
+
+- **precision** — Requested precision, in digits.
 
 ---
 
@@ -896,8 +1304,13 @@ void setRealPrecision(int precision);
 int realPrecision();
 ```
 
-@brief Returns the precision used for reals.
-@return Computed value.
+**Description**
+
+Returns the precision used for reals.
+
+**Returns**
+
+Computed value.
 
 ---
 
@@ -907,9 +1320,14 @@ int realPrecision();
 template<class T, typename std::enable_if<std::is_integral<T>::value && std::is_signed<T>::value, int>::type = 0> csRational(T num, size_t denom=1) : csRational(csRaw_q{});
 ```
 
-@brief Builds a rational from a signed integer.
-@param num Signed integer of the numerator.
-@param denom Positive denominator.
+**Description**
+
+Builds a rational from a signed integer.
+
+**Parameters**
+
+- **num** — Signed integer of the numerator.
+- **denom** — Positive denominator.
 
 ---
 
@@ -919,7 +1337,9 @@ template<class T, typename std::enable_if<std::is_integral<T>::value && std::is_
 void init();
 ```
 
-@brief Initializes the object or the library tables.
+**Description**
+
+Initializes the object or the library tables.
 
 ---
 
@@ -929,10 +1349,15 @@ void init();
 void set(const char* numerator, const char* denominator, bool sign);
 ```
 
-@brief Assigns a new value.
-@param numerator Decimal text of the numerator.
-@param denominator Decimal text of the denominator.
-@param sign Sign. Zero when the number is positive.
+**Description**
+
+Assigns a new value.
+
+**Parameters**
+
+- **numerator** — Decimal text of the numerator.
+- **denominator** — Decimal text of the denominator.
+- **sign** — Sign. Zero when the number is positive.
 
 ---
 
@@ -942,10 +1367,15 @@ void set(const char* numerator, const char* denominator, bool sign);
 void set(size_t num, size_t denom=1, bool sign=0);
 ```
 
-@brief Assigns a new value.
-@param num Parameter @p num.
-@param denom Parameter @p denom.
-@param sign Sign. Zero when the number is positive.
+**Description**
+
+Assigns a new value.
+
+**Parameters**
+
+- **num** — Parameter `num`.
+- **denom** — Parameter `denom`.
+- **sign** — Sign. Zero when the number is positive.
 
 ---
 
@@ -955,9 +1385,14 @@ void set(size_t num, size_t denom=1, bool sign=0);
 void assignValue(long num, size_t denom=1);
 ```
 
-@brief Assigns a long integer.
-@param num Parameter @p num.
-@param denom Parameter @p denom.
+**Description**
+
+Assigns a long integer.
+
+**Parameters**
+
+- **num** — Parameter `num`.
+- **denom** — Parameter `denom`.
 
 ---
 
@@ -967,8 +1402,13 @@ void assignValue(long num, size_t denom=1);
 void reduce(size_t precision);
 ```
 
-@brief Reduces the value to the requested size.
-@param precision Requested precision, in digits.
+**Description**
+
+Reduces the value to the requested size.
+
+**Parameters**
+
+- **precision** — Requested precision, in digits.
 
 ---
 
@@ -978,9 +1418,17 @@ void reduce(size_t precision);
 bool equalAbsolute(const csRational& a);
 ```
 
-@brief Reports whether the absolute values are equal.
-@param a First operand.
-@return True when the condition holds.
+**Description**
+
+Reports whether the absolute values are equal.
+
+**Parameters**
+
+- **a** — First operand.
+
+**Returns**
+
+True when the condition holds.
 
 ---
 
@@ -990,9 +1438,17 @@ bool equalAbsolute(const csRational& a);
 bool differAbsolute(const csRational& a);
 ```
 
-@brief Reports whether the absolute values differ.
-@param a First operand.
-@return True when the condition holds.
+**Description**
+
+Reports whether the absolute values differ.
+
+**Parameters**
+
+- **a** — First operand.
+
+**Returns**
+
+True when the condition holds.
 
 ---
 
@@ -1002,9 +1458,17 @@ bool differAbsolute(const csRational& a);
 bool greaterAbsolute(const csRational& a);
 ```
 
-@brief Reports whether the absolute value is greater.
-@param a First operand.
-@return True when the condition holds.
+**Description**
+
+Reports whether the absolute value is greater.
+
+**Parameters**
+
+- **a** — First operand.
+
+**Returns**
+
+True when the condition holds.
 
 ---
 
@@ -1014,9 +1478,17 @@ bool greaterAbsolute(const csRational& a);
 bool lessAbsolute(const csRational& a);
 ```
 
-@brief Reports whether the absolute value is less.
-@param a First operand.
-@return True when the condition holds.
+**Description**
+
+Reports whether the absolute value is less.
+
+**Parameters**
+
+- **a** — First operand.
+
+**Returns**
+
+True when the condition holds.
 
 ---
 
@@ -1026,9 +1498,17 @@ bool lessAbsolute(const csRational& a);
 bool greaterOrEqualAbsolute(const csRational& a);
 ```
 
-@brief Reports whether the absolute value is greater than or equal.
-@param a First operand.
-@return True when the condition holds.
+**Description**
+
+Reports whether the absolute value is greater than or equal.
+
+**Parameters**
+
+- **a** — First operand.
+
+**Returns**
+
+True when the condition holds.
 
 ---
 
@@ -1038,9 +1518,17 @@ bool greaterOrEqualAbsolute(const csRational& a);
 bool lessOrEqualAbsolute(const csRational& a);
 ```
 
-@brief Reports whether the absolute value is less than or equal.
-@param a First operand.
-@return True when the condition holds.
+**Description**
+
+Reports whether the absolute value is less than or equal.
+
+**Parameters**
+
+- **a** — First operand.
+
+**Returns**
+
+True when the condition holds.
 
 ---
 
@@ -1050,7 +1538,9 @@ bool lessOrEqualAbsolute(const csRational& a);
 operator csReal();
 ```
 
-@brief Real number as a mantissa and an exponent.
+**Description**
+
+Real number as a mantissa and an exponent.
 
 ---
 
@@ -1060,8 +1550,13 @@ operator csReal();
 bool isZero();
 ```
 
-@brief Reports whether the value is zero.
-@return True when the condition holds.
+**Description**
+
+Reports whether the value is zero.
+
+**Returns**
+
+True when the condition holds.
 
 ---
 
@@ -1071,8 +1566,13 @@ bool isZero();
 bool isNonZero();
 ```
 
-@brief Reports whether the value is non-zero.
-@return True when the condition holds.
+**Description**
+
+Reports whether the value is non-zero.
+
+**Returns**
+
+True when the condition holds.
 
 ---
 
@@ -1082,8 +1582,13 @@ bool isNonZero();
 bool negativeSign() const;
 ```
 
-@brief Returns the stored sign, without testing for zero.
-@return True when the negative flag is set.
+**Description**
+
+Returns the stored sign, without testing for zero.
+
+**Returns**
+
+True when the negative flag is set.
 
 ---
 
@@ -1093,8 +1598,13 @@ bool negativeSign() const;
 bool isNegative();
 ```
 
-@brief Reports whether the value is strictly negative.
-@return True when the sign is negative and the value is not zero.
+**Description**
+
+Reports whether the value is strictly negative.
+
+**Returns**
+
+True when the sign is negative and the value is not zero.
 
 ---
 
@@ -1104,8 +1614,13 @@ bool isNegative();
 void copy(const csRational& a);
 ```
 
-@brief Copies the value.
-@param a First operand.
+**Description**
+
+Copies the value.
+
+**Parameters**
+
+- **a** — First operand.
 
 ---
 
@@ -1115,8 +1630,13 @@ void copy(const csRational& a);
 double getDouble();
 ```
 
-@brief Returns an approximation as a double.
-@return Approximation as a double.
+**Description**
+
+Returns an approximation as a double.
+
+**Returns**
+
+Approximation as a double.
 
 ---
 
@@ -1126,8 +1646,13 @@ double getDouble();
 size_t maxLimbCount();
 ```
 
-@brief Returns the larger of the two sizes.
-@return Computed value.
+**Description**
+
+Returns the larger of the two sizes.
+
+**Returns**
+
+Computed value.
 
 ---
 
@@ -1137,8 +1662,13 @@ size_t maxLimbCount();
 char* decimalExpansion();
 ```
 
-@brief Returns the decimal expansion of the rational.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Returns the decimal expansion of the rational.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -1148,8 +1678,13 @@ char* decimalExpansion();
 void print(const char*title);
 ```
 
-@brief Prints the value.
-@param title Title printed before the values.
+**Description**
+
+Prints the value.
+
+**Parameters**
+
+- **title** — Title printed before the values.
 
 ---
 
@@ -1159,8 +1694,13 @@ void print(const char*title);
 void clear(const source_location loc = source_location::current());
 ```
 
-@brief Releases the memory held by the object.
-@param loc Call site, for diagnostics.
+**Description**
+
+Releases the memory held by the object.
+
+**Parameters**
+
+- **loc** — Call site, for diagnostics.
 
 ---
 
@@ -1170,7 +1710,9 @@ void clear(const source_location loc = source_location::current());
 struct CSARITHMETIC_API csInteger;
 ```
 
-@brief Exact integer. One machine word while the value fits, then 32 internal limbs, then the heap.
+**Description**
+
+Exact integer. One machine word while the value fits, then 32 internal limbs, then the heap.
 
 ---
 
@@ -1180,7 +1722,9 @@ struct CSARITHMETIC_API csInteger;
 void clear();
 ```
 
-@brief Sets the integer to zero and releases the limbs.
+**Description**
+
+Sets the integer to zero and releases the limbs.
 
 ---
 
@@ -1190,8 +1734,13 @@ void clear();
 void copy(const csInteger& other);
 ```
 
-@brief Copies the value.
-@param other Source integer.
+**Description**
+
+Copies the value.
+
+**Parameters**
+
+- **other** — Source integer.
 
 ---
 
@@ -1201,8 +1750,13 @@ void copy(const csInteger& other);
 void set(long long number);
 ```
 
-@brief Assigns a signed 64-bit integer.
-@param number Signed value.
+**Description**
+
+Assigns a signed 64-bit integer.
+
+**Parameters**
+
+- **number** — Signed value.
 
 ---
 
@@ -1212,9 +1766,14 @@ void set(long long number);
 void set(unsigned long long number, bool negativeSign = false);
 ```
 
-@brief Assigns an unsigned 64-bit integer.
-@param number Absolute value.
-@param negativeSign True when the result must be negative.
+**Description**
+
+Assigns an unsigned 64-bit integer.
+
+**Parameters**
+
+- **number** — Absolute value.
+- **negativeSign** — True when the result must be negative.
 
 ---
 
@@ -1224,8 +1783,13 @@ void set(unsigned long long number, bool negativeSign = false);
 void set(const char* digits);
 ```
 
-@brief Assigns a decimal text.
-@param digits Digits, with an optional sign.
+**Description**
+
+Assigns a decimal text.
+
+**Parameters**
+
+- **digits** — Digits, with an optional sign.
 
 ---
 
@@ -1235,10 +1799,15 @@ void set(const char* digits);
 void assignMagnitude(const uint32_t* digits, size_t limbCount, bool negativeSign);
 ```
 
-@brief Assigns a magnitude in base 2^32, little-endian.
-@param digits Limbs. May be null.
-@param limbCount Number of limbs.
-@param negativeSign True when the result must be negative.
+**Description**
+
+Assigns a magnitude in base 2^32, little-endian.
+
+**Parameters**
+
+- **digits** — Limbs. May be null.
+- **limbCount** — Number of limbs.
+- **negativeSign** — True when the result must be negative.
 
 ---
 
@@ -1248,9 +1817,17 @@ void assignMagnitude(const uint32_t* digits, size_t limbCount, bool negativeSign
 uint32_t modulo(uint32_t mod) const;
 ```
 
-@brief Remainder in [0, mod), sign included.
-@param mod Modulus.
-@return Remainder.
+**Description**
+
+Remainder in [0, mod), sign included.
+
+**Parameters**
+
+- **mod** — Modulus.
+
+**Returns**
+
+Remainder.
 
 ---
 
@@ -1260,8 +1837,13 @@ uint32_t modulo(uint32_t mod) const;
 size_t bitCount() const;
 ```
 
-@brief Number of bits of the absolute value.
-@return Number of bits.
+**Description**
+
+Number of bits of the absolute value.
+
+**Returns**
+
+Number of bits.
 
 ---
 
@@ -1271,8 +1853,13 @@ size_t bitCount() const;
 bool isZero() const;
 ```
 
-@brief Reports whether the value is zero.
-@return True when the value is zero.
+**Description**
+
+Reports whether the value is zero.
+
+**Returns**
+
+True when the value is zero.
 
 ---
 
@@ -1282,8 +1869,13 @@ bool isZero() const;
 bool negativeSign() const;
 ```
 
-@brief Returns the stored sign, without testing for zero.
-@return True when the negative flag is set.
+**Description**
+
+Returns the stored sign, without testing for zero.
+
+**Returns**
+
+True when the negative flag is set.
 
 ---
 
@@ -1293,8 +1885,13 @@ bool negativeSign() const;
 bool isNegative() const;
 ```
 
-@brief Reports whether the value is negative.
-@return True when the value is strictly negative.
+**Description**
+
+Reports whether the value is negative.
+
+**Returns**
+
+True when the value is strictly negative.
 
 ---
 
@@ -1304,8 +1901,13 @@ bool isNegative() const;
 char* toDecimal() const;
 ```
 
-@brief Returns the decimal digits, sign included.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Returns the decimal digits, sign included.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -1315,8 +1917,13 @@ char* toDecimal() const;
 void print(const char* title) const;
 ```
 
-@brief Prints the value.
-@param title Title printed before the value.
+**Description**
+
+Prints the value.
+
+**Parameters**
+
+- **title** — Title printed before the value.
 
 ---
 
@@ -1326,9 +1933,14 @@ void print(const char* title) const;
 void csPtrFree_q(csRational*& qn, size_t size);
 ```
 
-@brief Releases an array of rationals.
-@param qn Array of rationals.
-@param size Requested size.
+**Description**
+
+Releases an array of rationals.
+
+**Parameters**
+
+- **qn** — Array of rationals.
+- **size** — Requested size.
 
 ---
 
@@ -1338,9 +1950,14 @@ void csPtrFree_q(csRational*& qn, size_t size);
 void csPtrFree_r(csReal*& rn, size_t size);
 ```
 
-@brief Releases an array of reals.
-@param rn Array of reals.
-@param size Requested size.
+**Description**
+
+Releases an array of reals.
+
+**Parameters**
+
+- **rn** — Array of reals.
+- **size** — Requested size.
 
 ---
 
@@ -1350,7 +1967,9 @@ void csPtrFree_r(csReal*& rn, size_t size);
 void init();
 ```
 
-@brief Initializes the object or the library tables.
+**Description**
+
+Initializes the object or the library tables.
 
 ---
 
@@ -1360,10 +1979,15 @@ void init();
 void set(const char* mantissa, int exponent, bool sign);
 ```
 
-@brief Assigns a new value.
-@param mantissa Decimal text of the mantissa.
-@param exponent Decimal exponent.
-@param sign Sign. Zero when the number is positive.
+**Description**
+
+Assigns a new value.
+
+**Parameters**
+
+- **mantissa** — Decimal text of the mantissa.
+- **exponent** — Decimal exponent.
+- **sign** — Sign. Zero when the number is positive.
 
 ---
 
@@ -1373,11 +1997,16 @@ void set(const char* mantissa, int exponent, bool sign);
 void set(const char* mantissa, int exponent, bool sign, int repeat);
 ```
 
-@brief Assigns a repeated mantissa to an existing real.
-@param mantissa Decimal text of the mantissa.
-@param exponent Decimal exponent.
-@param sign Sign. Zero when the number is positive.
-@param repeat Number of times the mantissa is repeated. A value below 1 yields zero.
+**Description**
+
+Assigns a repeated mantissa to an existing real.
+
+**Parameters**
+
+- **mantissa** — Decimal text of the mantissa.
+- **exponent** — Decimal exponent.
+- **sign** — Sign. Zero when the number is positive.
+- **repeat** — Number of times the mantissa is repeated. A value below 1 yields zero.
 
 ---
 
@@ -1387,12 +2016,17 @@ void set(const char* mantissa, int exponent, bool sign, int repeat);
 void set(const char* mantissa, int exponent, bool sign, int repeat, int pos);
 ```
 
-@brief Assigns a repeated section of the mantissa to an existing real.
-@param mantissa Decimal text of the mantissa.
-@param exponent Decimal exponent.
-@param sign Sign. Zero when the number is positive.
-@param repeat Number of times the section is repeated. A value below 1 yields zero.
-@param pos Repeated section. Positive: from the first character through the pos-th, then the rest. Negative: from the pos-th character from the end through the last character, placed at the end.
+**Description**
+
+Assigns a repeated section of the mantissa to an existing real.
+
+**Parameters**
+
+- **mantissa** — Decimal text of the mantissa.
+- **exponent** — Decimal exponent.
+- **sign** — Sign. Zero when the number is positive.
+- **repeat** — Number of times the section is repeated. A value below 1 yields zero.
+- **pos** — Repeated section. Positive: from the first character through the pos-th, then the rest. Negative: from the pos-th character from the end through the last character, placed at the end.
 
 ---
 
@@ -1402,13 +2036,18 @@ void set(const char* mantissa, int exponent, bool sign, int repeat, int pos);
 void set(const char* mantissa, int exponent, bool sign, int repeat, int length, int index);
 ```
 
-@brief Assigns a repeated slice of the mantissa to an existing real.
-@param mantissa Decimal text of the mantissa.
-@param exponent Decimal exponent.
-@param sign Sign. Zero when the number is positive.
-@param repeat Number of times the slice is repeated. A value below 1 yields zero.
-@param length Length of the slice, in characters.
-@param index Start index of the slice, from zero.
+**Description**
+
+Assigns a repeated slice of the mantissa to an existing real.
+
+**Parameters**
+
+- **mantissa** — Decimal text of the mantissa.
+- **exponent** — Decimal exponent.
+- **sign** — Sign. Zero when the number is positive.
+- **repeat** — Number of times the slice is repeated. A value below 1 yields zero.
+- **length** — Length of the slice, in characters.
+- **index** — Start index of the slice, from zero.
 
 ---
 
@@ -1418,10 +2057,15 @@ void set(const char* mantissa, int exponent, bool sign, int repeat, int length, 
 void set(unsigned long mantissa, int exponent, bool sign);
 ```
 
-@brief Assigns a new value.
-@param mantissa Decimal text of the mantissa.
-@param exponent Decimal exponent.
-@param sign Sign. Zero when the number is positive.
+**Description**
+
+Assigns a new value.
+
+**Parameters**
+
+- **mantissa** — Decimal text of the mantissa.
+- **exponent** — Decimal exponent.
+- **sign** — Sign. Zero when the number is positive.
 
 ---
 
@@ -1431,9 +2075,14 @@ void set(unsigned long mantissa, int exponent, bool sign);
 void set(long mantissa, int exponent);
 ```
 
-@brief Assigns a new value.
-@param mantissa Decimal text of the mantissa.
-@param exponent Decimal exponent.
+**Description**
+
+Assigns a new value.
+
+**Parameters**
+
+- **mantissa** — Decimal text of the mantissa.
+- **exponent** — Decimal exponent.
 
 ---
 
@@ -1443,9 +2092,14 @@ void set(long mantissa, int exponent);
 void set(bool evaluate, const char* number);
 ```
 
-@brief Assigns a new value.
-@param evaluate Interprets the text as a number.
-@param number Text of the number.
+**Description**
+
+Assigns a new value.
+
+**Parameters**
+
+- **evaluate** — Interprets the text as a number.
+- **number** — Text of the number.
 
 ---
 
@@ -1455,8 +2109,13 @@ void set(bool evaluate, const char* number);
 void setPrecision(int precision);
 ```
 
-@brief Sets the precision of this real.
-@param precision Requested precision, in digits.
+**Description**
+
+Sets the precision of this real.
+
+**Parameters**
+
+- **precision** — Requested precision, in digits.
 
 ---
 
@@ -1466,8 +2125,13 @@ void setPrecision(int precision);
 void setDecimalPlaces(int size);
 ```
 
-@brief Forces the number of mantissa digits.
-@param size Requested size.
+**Description**
+
+Forces the number of mantissa digits.
+
+**Parameters**
+
+- **size** — Requested size.
 
 ---
 
@@ -1477,8 +2141,13 @@ void setDecimalPlaces(int size);
 void extendMantissa(size_t size);
 ```
 
-@brief Increases the number of mantissa digits.
-@param size Requested size.
+**Description**
+
+Increases the number of mantissa digits.
+
+**Parameters**
+
+- **size** — Requested size.
 
 ---
 
@@ -1488,8 +2157,13 @@ void extendMantissa(size_t size);
 void shortenMantissa(size_t size);
 ```
 
-@brief Reduces the number of mantissa digits.
-@param size Requested size.
+**Description**
+
+Reduces the number of mantissa digits.
+
+**Parameters**
+
+- **size** — Requested size.
 
 ---
 
@@ -1499,8 +2173,13 @@ void shortenMantissa(size_t size);
 void resizeMantissa(size_t newMantissaSize);
 ```
 
-@brief Reshapes the mantissa to the requested form.
-@param newMantissaSize Parameter @p newMantissaSize.
+**Description**
+
+Reshapes the mantissa to the requested form.
+
+**Parameters**
+
+- **newMantissaSize** — Parameter `newMantissaSize`.
 
 ---
 
@@ -1510,7 +2189,9 @@ void resizeMantissa(size_t newMantissaSize);
 void trimTrailingZeros();
 ```
 
-@brief Removes cosmetic zeros from the mantissa.
+**Description**
+
+Removes cosmetic zeros from the mantissa.
 
 ---
 
@@ -1520,8 +2201,13 @@ void trimTrailingZeros();
 void reduce(size_t size);
 ```
 
-@brief Reduces the value to the requested size.
-@param size Requested size.
+**Description**
+
+Reduces the value to the requested size.
+
+**Parameters**
+
+- **size** — Requested size.
 
 ---
 
@@ -1531,8 +2217,13 @@ void reduce(size_t size);
 size_t digitCount();
 ```
 
-@brief Returns the number of mantissa digits.
-@return Computed value.
+**Description**
+
+Returns the number of mantissa digits.
+
+**Returns**
+
+Computed value.
 
 ---
 
@@ -1542,7 +2233,9 @@ size_t digitCount();
 operator csRational();
 ```
 
-@brief Exact rational, numerator and denominator in limbs.
+**Description**
+
+Exact rational, numerator and denominator in limbs.
 
 ---
 
@@ -1552,8 +2245,13 @@ operator csRational();
 void copy(const csReal& a);
 ```
 
-@brief Copies the value.
-@param a First operand.
+**Description**
+
+Copies the value.
+
+**Parameters**
+
+- **a** — First operand.
 
 ---
 
@@ -1563,8 +2261,13 @@ void copy(const csReal& a);
 bool isZero();
 ```
 
-@brief Sets the real to zero.
-@return True when the condition holds.
+**Description**
+
+Sets the real to zero.
+
+**Returns**
+
+True when the condition holds.
 
 ---
 
@@ -1574,8 +2277,13 @@ bool isZero();
 bool negativeSign() const;
 ```
 
-@brief Returns the stored sign, without testing for zero.
-@return True when the negative flag is set.
+**Description**
+
+Returns the stored sign, without testing for zero.
+
+**Returns**
+
+True when the negative flag is set.
 
 ---
 
@@ -1585,8 +2293,13 @@ bool negativeSign() const;
 bool isNegative();
 ```
 
-@brief Reports whether the value is strictly negative.
-@return True when the sign is negative and the value is not zero.
+**Description**
+
+Reports whether the value is strictly negative.
+
+**Returns**
+
+True when the sign is negative and the value is not zero.
 
 ---
 
@@ -1596,8 +2309,13 @@ bool isNegative();
 void print(const char* title);
 ```
 
-@brief Prints the value.
-@param title Title printed before the values.
+**Description**
+
+Prints the value.
+
+**Parameters**
+
+- **title** — Title printed before the values.
 
 ---
 
@@ -1607,8 +2325,13 @@ void print(const char* title);
 void printScientific(const char* title);
 ```
 
-@brief Prints the value with an extended format.
-@param title Title printed before the values.
+**Description**
+
+Prints the value with an extended format.
+
+**Parameters**
+
+- **title** — Title printed before the values.
 
 ---
 
@@ -1618,8 +2341,13 @@ void printScientific(const char* title);
 void copyFrom(const csReal& a);
 ```
 
-@brief Assigns another real to this object.
-@param a First operand.
+**Description**
+
+Assigns another real to this object.
+
+**Parameters**
+
+- **a** — First operand.
 
 ---
 
@@ -1629,9 +2357,14 @@ void copyFrom(const csReal& a);
 void setDigit(size_t id, char digit);
 ```
 
-@brief Assigns a new value.
-@param id Index of the element.
-@param digit Digit to write.
+**Description**
+
+Assigns a new value.
+
+**Parameters**
+
+- **id** — Index of the element.
+- **digit** — Digit to write.
 
 ---
 
@@ -1641,9 +2374,14 @@ void setDigit(size_t id, char digit);
 void setIntegerDigit(size_t id, char digit);
 ```
 
-@brief Assigns the integer part.
-@param id Index of the element.
-@param digit Digit to write.
+**Description**
+
+Assigns the integer part.
+
+**Parameters**
+
+- **id** — Index of the element.
+- **digit** — Digit to write.
 
 ---
 
@@ -1653,9 +2391,14 @@ void setIntegerDigit(size_t id, char digit);
 void setFractionalDigit(size_t id, char digit);
 ```
 
-@brief Assigns the fractional part.
-@param id Index of the element.
-@param digit Digit to write.
+**Description**
+
+Assigns the fractional part.
+
+**Parameters**
+
+- **id** — Index of the element.
+- **digit** — Digit to write.
 
 ---
 
@@ -1665,8 +2408,13 @@ void setFractionalDigit(size_t id, char digit);
 void setPowerOfTen(long power);
 ```
 
-@brief Assigns a power of ten.
-@param power Power of ten.
+**Description**
+
+Assigns a power of ten.
+
+**Parameters**
+
+- **power** — Power of ten.
 
 ---
 
@@ -1676,12 +2424,17 @@ void setPowerOfTen(long power);
 void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool sign=0);
 ```
 
-@brief Draws a random value.
-@param nDigits Number of digits.
-@param digitMin Parameter @p digitMin.
-@param digitMax Parameter @p digitMax.
-@param exponent Decimal exponent.
-@param sign Sign. Zero when the number is positive.
+**Description**
+
+Draws a random value.
+
+**Parameters**
+
+- **nDigits** — Number of digits.
+- **digitMin** — Parameter `digitMin`.
+- **digitMax** — Parameter `digitMax`.
+- **exponent** — Decimal exponent.
+- **sign** — Sign. Zero when the number is positive.
 
 ---
 
@@ -1691,9 +2444,17 @@ void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, b
 size_t significantZeroCount(size_t initialPos=0);
 ```
 
-@brief Counts the significant zeros of the mantissa.
-@param initialPos Parameter @p initialPos.
-@return Computed value.
+**Description**
+
+Counts the significant zeros of the mantissa.
+
+**Parameters**
+
+- **initialPos** — Parameter `initialPos`.
+
+**Returns**
+
+Computed value.
 
 ---
 
@@ -1703,7 +2464,9 @@ size_t significantZeroCount(size_t initialPos=0);
 void clear();
 ```
 
-@brief Releases the memory held by the object.
+**Description**
+
+Releases the memory held by the object.
 
 ---
 
@@ -1713,7 +2476,9 @@ void clear();
 struct csComplex;
 ```
 
-@brief Complex number a + bi. Both parts are reals.
+**Description**
+
+Complex number a + bi. Both parts are reals.
 The sign of each part is read on that part: real.negativeSign(), imag.isNegative().
 Division by zero yields zero, as for the integer.
 
@@ -1725,7 +2490,9 @@ Division by zero yields zero, as for the integer.
 void set(const csReal& re, const csReal& im);
 ```
 
-@brief Assigns both parts.
+**Description**
+
+Assigns both parts.
 
 ---
 
@@ -1735,7 +2502,9 @@ void set(const csReal& re, const csReal& im);
 void set(long re, long im);
 ```
 
-@brief Assigns two integers.
+**Description**
+
+Assigns two integers.
 
 ---
 
@@ -1745,7 +2514,9 @@ void set(long re, long im);
 void set(double re, double im);
 ```
 
-@brief Assigns two machine decimals.
+**Description**
+
+Assigns two machine decimals.
 
 ---
 
@@ -1755,7 +2526,9 @@ void set(double re, double im);
 void copy(const csComplex& other);
 ```
 
-@brief Copies the value.
+**Description**
+
+Copies the value.
 
 ---
 
@@ -1765,7 +2538,9 @@ void copy(const csComplex& other);
 void clear();
 ```
 
-@brief Releases the memory of both parts.
+**Description**
+
+Releases the memory of both parts.
 
 ---
 
@@ -1775,7 +2550,9 @@ void clear();
 bool isZero();
 ```
 
-@brief Reports whether both parts are zero.
+**Description**
+
+Reports whether both parts are zero.
 
 ---
 
@@ -1785,7 +2562,9 @@ bool isZero();
 bool isReal();
 ```
 
-@brief Reports whether the imaginary part is zero.
+**Description**
+
+Reports whether the imaginary part is zero.
 
 ---
 
@@ -1795,7 +2574,9 @@ bool isReal();
 bool isImaginary();
 ```
 
-@brief Reports whether the real part is zero.
+**Description**
+
+Reports whether the real part is zero.
 
 ---
 
@@ -1805,7 +2586,9 @@ bool isImaginary();
 static csComplex imaginaryUnit();
 ```
 
-@brief Returns the imaginary unit.
+**Description**
+
+Returns the imaginary unit.
 
 ---
 
@@ -1815,8 +2598,13 @@ static csComplex imaginaryUnit();
 void print(const char* title);
 ```
 
-@brief Prints the value.
-@param title Title printed before the values.
+**Description**
+
+Prints the value.
+
+**Parameters**
+
+- **title** — Title printed before the values.
 
 ---
 
@@ -1826,7 +2614,9 @@ void print(const char* title);
 struct csComplex_q;
 ```
 
-@brief Complex number a + bi. Both parts are exact rationals.
+**Description**
+
+Complex number a + bi. Both parts are exact rationals.
 The sign of each part is read on that part: real.negativeSign(), imag.isNegative().
 Division by zero yields zero. The squared modulus stays rational; the modulus itself is a real.
 
@@ -1838,7 +2628,9 @@ Division by zero yields zero. The squared modulus stays rational; the modulus it
 void set(const csRational& re, const csRational& im);
 ```
 
-@brief Assigns both parts.
+**Description**
+
+Assigns both parts.
 
 ---
 
@@ -1848,7 +2640,9 @@ void set(const csRational& re, const csRational& im);
 void set(long re, long im);
 ```
 
-@brief Assigns two integers.
+**Description**
+
+Assigns two integers.
 
 ---
 
@@ -1858,7 +2652,9 @@ void set(long re, long im);
 void copy(const csComplex_q& other);
 ```
 
-@brief Copies the value.
+**Description**
+
+Copies the value.
 
 ---
 
@@ -1868,7 +2664,9 @@ void copy(const csComplex_q& other);
 void clear();
 ```
 
-@brief Releases the memory of both parts.
+**Description**
+
+Releases the memory of both parts.
 
 ---
 
@@ -1878,7 +2676,9 @@ void clear();
 bool isZero();
 ```
 
-@brief Reports whether both parts are zero.
+**Description**
+
+Reports whether both parts are zero.
 
 ---
 
@@ -1888,7 +2688,9 @@ bool isZero();
 bool isReal();
 ```
 
-@brief Reports whether the imaginary part is zero.
+**Description**
+
+Reports whether the imaginary part is zero.
 
 ---
 
@@ -1898,7 +2700,9 @@ bool isReal();
 bool isImaginary();
 ```
 
-@brief Reports whether the real part is zero.
+**Description**
+
+Reports whether the real part is zero.
 
 ---
 
@@ -1908,7 +2712,9 @@ bool isImaginary();
 static csComplex_q imaginaryUnit();
 ```
 
-@brief Returns the imaginary unit.
+**Description**
+
+Returns the imaginary unit.
 
 ---
 
@@ -1918,8 +2724,13 @@ static csComplex_q imaginaryUnit();
 void print(const char* title);
 ```
 
-@brief Prints the value.
-@param title Title printed before the values.
+**Description**
+
+Prints the value.
+
+**Parameters**
+
+- **title** — Title printed before the values.
 
 ---
 
@@ -1929,7 +2740,9 @@ void print(const char* title);
 void init();
 ```
 
-@brief Initializes the object or the library tables.
+**Description**
+
+Initializes the object or the library tables.
 
 ---
 
@@ -1939,9 +2752,14 @@ void init();
 void printDigits(char* nb, const char* separator=" ");
 ```
 
-@brief Prints an array of digits.
-@param nb Number of elements.
-@param separator Parameter @p separator.
+**Description**
+
+Prints an array of digits.
+
+**Parameters**
+
+- **nb** — Number of elements.
+- **separator** — Parameter `separator`.
 
 ---
 
@@ -1951,10 +2769,18 @@ void printDigits(char* nb, const char* separator=" ");
 uchar digitPairIndex(uchar tens, uchar units);
 ```
 
-@brief Returns the index of a digit pair.
-@param tens Parameter @p tens.
-@param units Parameter @p units.
-@return Result.
+**Description**
+
+Returns the index of a digit pair.
+
+**Parameters**
+
+- **tens** — Parameter `tens`.
+- **units** — Parameter `units`.
+
+**Returns**
+
+Result.
 
 ---
 
@@ -1964,11 +2790,19 @@ uchar digitPairIndex(uchar tens, uchar units);
 uchar digitTripleIndex(int cents, uchar tens, uchar units);
 ```
 
-@brief Returns the index of a digit triple.
-@param cents Parameter @p cents.
-@param tens Parameter @p tens.
-@param units Parameter @p units.
-@return Result.
+**Description**
+
+Returns the index of a digit triple.
+
+**Parameters**
+
+- **cents** — Parameter `cents`.
+- **tens** — Parameter `tens`.
+- **units** — Parameter `units`.
+
+**Returns**
+
+Result.
 
 ---
 
@@ -1978,9 +2812,17 @@ uchar digitTripleIndex(int cents, uchar tens, uchar units);
 csBIDIGITS subtractionStep(int i);
 ```
 
-@brief Transforms the digits of a subtraction.
-@param i Parameter @p i.
-@return Result.
+**Description**
+
+Transforms the digits of a subtraction.
+
+**Parameters**
+
+- **i** — Parameter `i`.
+
+**Returns**
+
+Result.
 
 ---
 
@@ -1990,15 +2832,20 @@ csBIDIGITS subtractionStep(int i);
 void multiplyDigitBase2(char* a, uchar b, char*& result, size_t aSize, size_t resSize,csBIDIGITS& prevCarry, size_t m, size_t n);
 ```
 
-@brief Computes a decimal product in the secondary base.
-@param a First operand.
-@param b Second operand.
-@param result Parameter @p result.
-@param aSize Number of digits of the first text.
-@param resSize Parameter @p resSize.
-@param prevCarry Parameter @p prevCarry.
-@param m Number of evaluation points.
-@param n Number of elements.
+**Description**
+
+Computes a decimal product in the secondary base.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **result** — Parameter `result`.
+- **aSize** — Number of digits of the first text.
+- **resSize** — Parameter `resSize`.
+- **prevCarry** — Parameter `prevCarry`.
+- **m** — Number of evaluation points.
+- **n** — Number of elements.
 
 ---
 
@@ -2008,12 +2855,17 @@ void multiplyDigitBase2(char* a, uchar b, char*& result, size_t aSize, size_t re
 void addShiftedProduct(char* a, char* b, char*& result, size_t opSize, size_t resSize);
 ```
 
-@brief Adds two texts during a multiplication.
-@param a First operand.
-@param b Second operand.
-@param result Parameter @p result.
-@param opSize Number of aligned digits.
-@param resSize Parameter @p resSize.
+**Description**
+
+Adds two texts during a multiplication.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **result** — Parameter `result`.
+- **opSize** — Number of aligned digits.
+- **resSize** — Parameter `resSize`.
 
 ---
 
@@ -2023,12 +2875,17 @@ void addShiftedProduct(char* a, char* b, char*& result, size_t opSize, size_t re
 void subtractPartialQuotient(char* a, char* b, char*& result, size_t opSize, size_t frontOffset);
 ```
 
-@brief Subtracts two texts during a division.
-@param a First operand.
-@param b Second operand.
-@param result Parameter @p result.
-@param opSize Number of aligned digits.
-@param frontOffset Parameter @p frontOffset.
+**Description**
+
+Subtracts two texts during a division.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **result** — Parameter `result`.
+- **opSize** — Number of aligned digits.
+- **frontOffset** — Parameter `frontOffset`.
 
 ---
 
@@ -2038,12 +2895,17 @@ void subtractPartialQuotient(char* a, char* b, char*& result, size_t opSize, siz
 void multiplyDigitForDivision(char* a, uchar b, char*& result, size_t aSize, size_t resSize);
 ```
 
-@brief Multiplies during a division, in the first base.
-@param a First operand.
-@param b Second operand.
-@param result Parameter @p result.
-@param aSize Number of digits of the first text.
-@param resSize Parameter @p resSize.
+**Description**
+
+Multiplies during a division, in the first base.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **result** — Parameter `result`.
+- **aSize** — Number of digits of the first text.
+- **resSize** — Parameter `resSize`.
 
 ---
 
@@ -2053,12 +2915,17 @@ void multiplyDigitForDivision(char* a, uchar b, char*& result, size_t aSize, siz
 void multiplyDigitPairForDivision(char* a, uchar b, char*& result, size_t aSize, size_t resSize);
 ```
 
-@brief Multiplies during a division, in the second base.
-@param a First operand.
-@param b Second operand.
-@param result Parameter @p result.
-@param aSize Number of digits of the first text.
-@param resSize Parameter @p resSize.
+**Description**
+
+Multiplies during a division, in the second base.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **result** — Parameter `result`.
+- **aSize** — Number of digits of the first text.
+- **resSize** — Parameter `resSize`.
 
 ---
 
@@ -2068,9 +2935,17 @@ void multiplyDigitPairForDivision(char* a, uchar b, char*& result, size_t aSize,
 csBIDIGITS** packDigitPairs(int** opTable);
 ```
 
-@brief Groups decimal digits into pairs.
-@param opTable Parameter @p opTable.
-@return Result.
+**Description**
+
+Groups decimal digits into pairs.
+
+**Parameters**
+
+- **opTable** — Parameter `opTable`.
+
+**Returns**
+
+Result.
 
 ---
 
@@ -2080,7 +2955,9 @@ csBIDIGITS** packDigitPairs(int** opTable);
 void buildMultiplicationTable();
 ```
 
-@brief Builds the multiplication table.
+**Description**
+
+Builds the multiplication table.
 
 ---
 
@@ -2090,7 +2967,9 @@ void buildMultiplicationTable();
 void buildAdditionTable();
 ```
 
-@brief Builds the addition table.
+**Description**
+
+Builds the addition table.
 
 ---
 
@@ -2100,7 +2979,9 @@ void buildAdditionTable();
 void buildDivisionTable();
 ```
 
-@brief Builds the division table.
+**Description**
+
+Builds the division table.
 
 ---
 
@@ -2110,7 +2991,9 @@ void buildDivisionTable();
 void buildSubtractionTable();
 ```
 
-@brief Builds the subtraction table.
+**Description**
+
+Builds the subtraction table.
 
 ---
 
@@ -2120,8 +3003,13 @@ void buildSubtractionTable();
 void printDigitTable(char* opName);
 ```
 
-@brief Prints a digit table.
-@param opName Parameter @p opName.
+**Description**
+
+Prints a digit table.
+
+**Parameters**
+
+- **opName** — Parameter `opName`.
 
 ---
 
@@ -2131,12 +3019,17 @@ void printDigitTable(char* opName);
 void addDecimal(char* a, char* b, char*& result, size_t opSize, size_t& resSize);
 ```
 
-@brief Adds two decimal texts.
-@param a First operand.
-@param b Second operand.
-@param result Parameter @p result.
-@param opSize Number of aligned digits.
-@param resSize Parameter @p resSize.
+**Description**
+
+Adds two decimal texts.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **result** — Parameter `result`.
+- **opSize** — Number of aligned digits.
+- **resSize** — Parameter `resSize`.
 
 ---
 
@@ -2146,10 +3039,18 @@ void addDecimal(char* a, char* b, char*& result, size_t opSize, size_t& resSize)
 char* addDecimal(char* a,char* b);
 ```
 
-@brief Adds two decimal texts.
-@param a First operand.
-@param b Second operand.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Adds two decimal texts.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2159,11 +3060,19 @@ char* addDecimal(char* a,char* b);
 char* addDecimal(char* a,char* b, size_t& resSize);
 ```
 
-@brief Adds two decimal texts.
-@param a First operand.
-@param b Second operand.
-@param resSize Parameter @p resSize.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Adds two decimal texts.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **resSize** — Parameter `resSize`.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2173,10 +3082,18 @@ char* addDecimal(char* a,char* b, size_t& resSize);
 char* addDecimal(const char* a,const char* b);
 ```
 
-@brief Adds two decimal texts.
-@param a First operand.
-@param b Second operand.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Adds two decimal texts.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2186,11 +3103,16 @@ char* addDecimal(const char* a,const char* b);
 void subtractDecimal(char* a, char* b, char*& result, size_t opSize);
 ```
 
-@brief Subtracts two decimal texts.
-@param a First operand.
-@param b Second operand.
-@param result Parameter @p result.
-@param opSize Number of aligned digits.
+**Description**
+
+Subtracts two decimal texts.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **result** — Parameter `result`.
+- **opSize** — Number of aligned digits.
 
 ---
 
@@ -2200,10 +3122,18 @@ void subtractDecimal(char* a, char* b, char*& result, size_t opSize);
 char* subtractDecimal(char* a,char* b);
 ```
 
-@brief Subtracts two decimal texts.
-@param a First operand.
-@param b Second operand.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Subtracts two decimal texts.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2213,11 +3143,19 @@ char* subtractDecimal(char* a,char* b);
 char* subtractDecimal(char* a,char* b, bool& sign);
 ```
 
-@brief Subtracts two decimal texts.
-@param a First operand.
-@param b Second operand.
-@param sign Sign. Zero when the number is positive.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Subtracts two decimal texts.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **sign** — Sign. Zero when the number is positive.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2227,12 +3165,20 @@ char* subtractDecimal(char* a,char* b, bool& sign);
 char* subtractDecimal(char* a,char* b, size_t aSize, size_t bSize);
 ```
 
-@brief Subtracts two decimal texts.
-@param a First operand.
-@param b Second operand.
-@param aSize Number of digits of the first text.
-@param bSize Number of digits of the second text.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Subtracts two decimal texts.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **aSize** — Number of digits of the first text.
+- **bSize** — Number of digits of the second text.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2242,13 +3188,21 @@ char* subtractDecimal(char* a,char* b, size_t aSize, size_t bSize);
 char* subtractDecimal(char* a,char* b, size_t aSize, size_t bSize, bool&sign);
 ```
 
-@brief Subtracts two decimal texts.
-@param a First operand.
-@param b Second operand.
-@param aSize Number of digits of the first text.
-@param bSize Number of digits of the second text.
-@param sign Sign. Zero when the number is positive.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Subtracts two decimal texts.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **aSize** — Number of digits of the first text.
+- **bSize** — Number of digits of the second text.
+- **sign** — Sign. Zero when the number is positive.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2258,10 +3212,18 @@ char* subtractDecimal(char* a,char* b, size_t aSize, size_t bSize, bool&sign);
 char* subtractDecimal(const char* a,const char*b);
 ```
 
-@brief Subtracts two decimal texts.
-@param a First operand.
-@param b Second operand.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Subtracts two decimal texts.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2271,14 +3233,22 @@ char* subtractDecimal(const char* a,const char*b);
 char* subtractDecimal(char* a,char* b, size_t aSize, size_t bSize, size_t& resSize, bool& sign);
 ```
 
-@brief Subtracts two decimal texts.
-@param a First operand.
-@param b Second operand.
-@param aSize Number of digits of the first text.
-@param bSize Number of digits of the second text.
-@param resSize Parameter @p resSize.
-@param sign Sign. Zero when the number is positive.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Subtracts two decimal texts.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **aSize** — Number of digits of the first text.
+- **bSize** — Number of digits of the second text.
+- **resSize** — Parameter `resSize`.
+- **sign** — Sign. Zero when the number is positive.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2288,12 +3258,17 @@ char* subtractDecimal(char* a,char* b, size_t aSize, size_t bSize, size_t& resSi
 void multiplyByDigit(char* a, uchar b, char*& result, size_t aSize, size_t resSize);
 ```
 
-@brief Computes a product in the current base.
-@param a First operand.
-@param b Second operand.
-@param result Parameter @p result.
-@param aSize Number of digits of the first text.
-@param resSize Parameter @p resSize.
+**Description**
+
+Computes a product in the current base.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **result** — Parameter `result`.
+- **aSize** — Number of digits of the first text.
+- **resSize** — Parameter `resSize`.
 
 ---
 
@@ -2303,14 +3278,19 @@ void multiplyByDigit(char* a, uchar b, char*& result, size_t aSize, size_t resSi
 void multiplyDecimal(char* a, char* b, char*& result, char*& tmpResult, size_t aSize, size_t bSize, size_t resSize);
 ```
 
-@brief Multiplies two decimal texts.
-@param a First operand.
-@param b Second operand.
-@param result Parameter @p result.
-@param tmpResult Parameter @p tmpResult.
-@param aSize Number of digits of the first text.
-@param bSize Number of digits of the second text.
-@param resSize Parameter @p resSize.
+**Description**
+
+Multiplies two decimal texts.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **result** — Parameter `result`.
+- **tmpResult** — Parameter `tmpResult`.
+- **aSize** — Number of digits of the first text.
+- **bSize** — Number of digits of the second text.
+- **resSize** — Parameter `resSize`.
 
 ---
 
@@ -2320,10 +3300,18 @@ void multiplyDecimal(char* a, char* b, char*& result, char*& tmpResult, size_t a
 char* multiplyDecimal(char* a, char* b);
 ```
 
-@brief Multiplies two decimal texts.
-@param a First operand.
-@param b Second operand.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Multiplies two decimal texts.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2333,12 +3321,20 @@ char* multiplyDecimal(char* a, char* b);
 char* multiplyDecimal(char* a, char* b, size_t aSize, size_t bSize);
 ```
 
-@brief Multiplies two decimal texts.
-@param a First operand.
-@param b Second operand.
-@param aSize Number of digits of the first text.
-@param bSize Number of digits of the second text.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Multiplies two decimal texts.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **aSize** — Number of digits of the first text.
+- **bSize** — Number of digits of the second text.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2348,10 +3344,18 @@ char* multiplyDecimal(char* a, char* b, size_t aSize, size_t bSize);
 char* multiplyDecimal(const char* a, const char* b);
 ```
 
-@brief Multiplies two decimal texts.
-@param a First operand.
-@param b Second operand.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Multiplies two decimal texts.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2361,13 +3365,21 @@ char* multiplyDecimal(const char* a, const char* b);
 char* multiplyDecimal(char* a, char* b, size_t aSize, size_t bSize, size_t& resSize);
 ```
 
-@brief Multiplies two decimal texts.
-@param a First operand.
-@param b Second operand.
-@param aSize Number of digits of the first text.
-@param bSize Number of digits of the second text.
-@param resSize Parameter @p resSize.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Multiplies two decimal texts.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **aSize** — Number of digits of the first text.
+- **bSize** — Number of digits of the second text.
+- **resSize** — Parameter `resSize`.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2377,11 +3389,19 @@ char* multiplyDecimal(char* a, char* b, size_t aSize, size_t bSize, size_t& resS
 char* divideDecimal(char*a, char* b, char*& remain);
 ```
 
-@brief Divides two decimal texts and returns the quotient.
-@param a First operand.
-@param b Second operand.
-@param remain Receives the remainder of the division.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Divides two decimal texts and returns the quotient.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **remain** — Receives the remainder of the division.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2391,10 +3411,18 @@ char* divideDecimal(char*a, char* b, char*& remain);
 char* divideDecimal(char*a, char* b);
 ```
 
-@brief Divides two decimal texts and returns the quotient.
-@param a First operand.
-@param b Second operand.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Divides two decimal texts and returns the quotient.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2404,16 +3432,24 @@ char* divideDecimal(char*a, char* b);
 char const* divideDecimal(char* a, char* b, char*& result, char*& remain, size_t& aSize, size_t& bSize, size_t& resSize, size_t& remSize);
 ```
 
-@brief Divides two decimal texts and returns the quotient.
-@param a First operand.
-@param b Second operand.
-@param result Parameter @p result.
-@param remain Receives the remainder of the division.
-@param aSize Number of digits of the first text.
-@param bSize Number of digits of the second text.
-@param resSize Parameter @p resSize.
-@param remSize Parameter @p remSize.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Divides two decimal texts and returns the quotient.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **result** — Parameter `result`.
+- **remain** — Receives the remainder of the division.
+- **aSize** — Number of digits of the first text.
+- **bSize** — Number of digits of the second text.
+- **resSize** — Parameter `resSize`.
+- **remSize** — Parameter `remSize`.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2423,11 +3459,19 @@ char const* divideDecimal(char* a, char* b, char*& result, char*& remain, size_t
 char* divideDecimal(const char* a, const char* b, char*&remain);
 ```
 
-@brief Divides two decimal texts and returns the quotient.
-@param a First operand.
-@param b Second operand.
-@param remain Receives the remainder of the division.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Divides two decimal texts and returns the quotient.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **remain** — Receives the remainder of the division.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2437,10 +3481,18 @@ char* divideDecimal(const char* a, const char* b, char*&remain);
 char* divideDecimal(const char* a, const char* b);
 ```
 
-@brief Divides two decimal texts and returns the quotient.
-@param a First operand.
-@param b Second operand.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Divides two decimal texts and returns the quotient.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2450,13 +3502,21 @@ char* divideDecimal(const char* a, const char* b);
 char* divideDecimal(char* a, char* b, size_t aSize, size_t bSize, size_t& resSize);
 ```
 
-@brief Divides two decimal texts and returns the quotient.
-@param a First operand.
-@param b Second operand.
-@param aSize Number of digits of the first text.
-@param bSize Number of digits of the second text.
-@param resSize Parameter @p resSize.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Divides two decimal texts and returns the quotient.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **aSize** — Number of digits of the first text.
+- **bSize** — Number of digits of the second text.
+- **resSize** — Parameter `resSize`.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2466,20 +3526,28 @@ char* divideDecimal(char* a, char* b, size_t aSize, size_t bSize, size_t& resSiz
 char const* divideWithFraction(char*_a, char* _b, char*& resInt, char*& resDec, char*& remain, size_t _aSize, size_t bSize, size_t& resSize, size_t& resIntSize, size_t& resDecSize, size_t& remSize, size_t nDecimals);
 ```
 
-@brief Divides two decimal texts and keeps a fractional part.
-@param _a First operand.
-@param _b Second operand.
-@param resInt Parameter @p resInt.
-@param resDec Parameter @p resDec.
-@param remain Receives the remainder of the division.
-@param _aSize Number of digits of the first text.
-@param bSize Number of digits of the second text.
-@param resSize Parameter @p resSize.
-@param resIntSize Parameter @p resIntSize.
-@param resDecSize Parameter @p resDecSize.
-@param remSize Parameter @p remSize.
-@param nDecimals Parameter @p nDecimals.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Divides two decimal texts and keeps a fractional part.
+
+**Parameters**
+
+- **_a** — First operand.
+- **_b** — Second operand.
+- **resInt** — Parameter `resInt`.
+- **resDec** — Parameter `resDec`.
+- **remain** — Receives the remainder of the division.
+- **_aSize** — Number of digits of the first text.
+- **bSize** — Number of digits of the second text.
+- **resSize** — Parameter `resSize`.
+- **resIntSize** — Parameter `resIntSize`.
+- **resDecSize** — Parameter `resDecSize`.
+- **remSize** — Parameter `remSize`.
+- **nDecimals** — Parameter `nDecimals`.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2489,20 +3557,28 @@ char const* divideWithFraction(char*_a, char* _b, char*& resInt, char*& resDec, 
 char const* divideWithScale(char*_a, char* _b, char*& resInt, char*& resDec, char*& remain, size_t _aSize, size_t bSize, size_t& resSize, size_t& resIntSize, size_t& resDecSize, size_t& remSize, size_t nDecimals);
 ```
 
-@brief Computes a real division, second variant.
-@param _a First operand.
-@param _b Second operand.
-@param resInt Parameter @p resInt.
-@param resDec Parameter @p resDec.
-@param remain Receives the remainder of the division.
-@param _aSize Number of digits of the first text.
-@param bSize Number of digits of the second text.
-@param resSize Parameter @p resSize.
-@param resIntSize Parameter @p resIntSize.
-@param resDecSize Parameter @p resDecSize.
-@param remSize Parameter @p remSize.
-@param nDecimals Parameter @p nDecimals.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Computes a real division, second variant.
+
+**Parameters**
+
+- **_a** — First operand.
+- **_b** — Second operand.
+- **resInt** — Parameter `resInt`.
+- **resDec** — Parameter `resDec`.
+- **remain** — Receives the remainder of the division.
+- **_aSize** — Number of digits of the first text.
+- **bSize** — Number of digits of the second text.
+- **resSize** — Parameter `resSize`.
+- **resIntSize** — Parameter `resIntSize`.
+- **resDecSize** — Parameter `resDecSize`.
+- **remSize** — Parameter `remSize`.
+- **nDecimals** — Parameter `nDecimals`.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2512,18 +3588,26 @@ char const* divideWithScale(char*_a, char* _b, char*& resInt, char*& resDec, cha
 char const* divideWithScale(char*_a, char* _b, char*& resInt, char*& resDec, size_t _aSize, size_t bSize, size_t& resSize, size_t& resIntSize, size_t& resDecSize, size_t nDecimals);
 ```
 
-@brief Computes a real division, second variant.
-@param _a First operand.
-@param _b Second operand.
-@param resInt Parameter @p resInt.
-@param resDec Parameter @p resDec.
-@param _aSize Number of digits of the first text.
-@param bSize Number of digits of the second text.
-@param resSize Parameter @p resSize.
-@param resIntSize Parameter @p resIntSize.
-@param resDecSize Parameter @p resDecSize.
-@param nDecimals Parameter @p nDecimals.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Computes a real division, second variant.
+
+**Parameters**
+
+- **_a** — First operand.
+- **_b** — Second operand.
+- **resInt** — Parameter `resInt`.
+- **resDec** — Parameter `resDec`.
+- **_aSize** — Number of digits of the first text.
+- **bSize** — Number of digits of the second text.
+- **resSize** — Parameter `resSize`.
+- **resIntSize** — Parameter `resIntSize`.
+- **resDecSize** — Parameter `resDecSize`.
+- **nDecimals** — Parameter `nDecimals`.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2533,14 +3617,22 @@ char const* divideWithScale(char*_a, char* _b, char*& resInt, char*& resDec, siz
 char const* divideDecimal(char*a, char* b, char*& result, size_t& aSize, size_t& bSize, size_t& resSize);
 ```
 
-@brief Divides two decimal texts and returns the quotient.
-@param a First operand.
-@param b Second operand.
-@param result Parameter @p result.
-@param aSize Number of digits of the first text.
-@param bSize Number of digits of the second text.
-@param resSize Parameter @p resSize.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Divides two decimal texts and returns the quotient.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **result** — Parameter `result`.
+- **aSize** — Number of digits of the first text.
+- **bSize** — Number of digits of the second text.
+- **resSize** — Parameter `resSize`.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2550,14 +3642,22 @@ char const* divideDecimal(char*a, char* b, char*& result, size_t& aSize, size_t&
 char const* divideWithFraction(char* a, char* b, char*& resInt, char*& resDec, char*& remain, size_t nDecimals);
 ```
 
-@brief Divides two decimal texts and keeps a fractional part.
-@param a First operand.
-@param b Second operand.
-@param resInt Parameter @p resInt.
-@param resDec Parameter @p resDec.
-@param remain Receives the remainder of the division.
-@param nDecimals Parameter @p nDecimals.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Divides two decimal texts and keeps a fractional part.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **resInt** — Parameter `resInt`.
+- **resDec** — Parameter `resDec`.
+- **remain** — Receives the remainder of the division.
+- **nDecimals** — Parameter `nDecimals`.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2567,14 +3667,22 @@ char const* divideWithFraction(char* a, char* b, char*& resInt, char*& resDec, c
 char const* remainderDecimal(char*a, char* b, char*& remain, size_t& aSize, size_t& bSize, size_t& remSize);
 ```
 
-@brief Computes the remainder of a rational division.
-@param a First operand.
-@param b Second operand.
-@param remain Receives the remainder of the division.
-@param aSize Number of digits of the first text.
-@param bSize Number of digits of the second text.
-@param remSize Parameter @p remSize.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Computes the remainder of a rational division.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **remain** — Receives the remainder of the division.
+- **aSize** — Number of digits of the first text.
+- **bSize** — Number of digits of the second text.
+- **remSize** — Parameter `remSize`.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2584,10 +3692,15 @@ char const* remainderDecimal(char*a, char* b, char*& remain, size_t& aSize, size
 void remainderDecimal(char*a, char* b, char*&remain);
 ```
 
-@brief Computes the remainder of a rational division.
-@param a First operand.
-@param b Second operand.
-@param remain Receives the remainder of the division.
+**Description**
+
+Computes the remainder of a rational division.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **remain** — Receives the remainder of the division.
 
 ---
 
@@ -2597,10 +3710,18 @@ void remainderDecimal(char*a, char* b, char*&remain);
 char* remainderDecimal(char*a, char* b);
 ```
 
-@brief Computes the remainder of a rational division.
-@param a First operand.
-@param b Second operand.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Computes the remainder of a rational division.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2610,10 +3731,18 @@ char* remainderDecimal(char*a, char* b);
 char* remainderDecimal(const char*a, const char* b);
 ```
 
-@brief Computes the remainder of a rational division.
-@param a First operand.
-@param b Second operand.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Computes the remainder of a rational division.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2623,11 +3752,19 @@ char* remainderDecimal(const char*a, const char* b);
 char* gcd(const char* a, const char* b, size_t& gcdSize);
 ```
 
-@brief Computes the greatest common divisor.
-@param a First operand.
-@param b Second operand.
-@param gcdSize Parameter @p gcdSize.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Computes the greatest common divisor.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **gcdSize** — Parameter `gcdSize`.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2637,11 +3774,19 @@ char* gcd(const char* a, const char* b, size_t& gcdSize);
 char* gcd(char* a, char* b, size_t& gcdSize);
 ```
 
-@brief Computes the greatest common divisor.
-@param a First operand.
-@param b Second operand.
-@param gcdSize Parameter @p gcdSize.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Computes the greatest common divisor.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **gcdSize** — Parameter `gcdSize`.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2651,13 +3796,21 @@ char* gcd(char* a, char* b, size_t& gcdSize);
 char* gcd(char* a, char* b, size_t aSize, size_t bSize, size_t& gcdSize);
 ```
 
-@brief Computes the greatest common divisor.
-@param a First operand.
-@param b Second operand.
-@param aSize Number of digits of the first text.
-@param bSize Number of digits of the second text.
-@param gcdSize Parameter @p gcdSize.
-@return Resulting text. The caller frees the memory.
+**Description**
+
+Computes the greatest common divisor.
+
+**Parameters**
+
+- **a** — First operand.
+- **b** — Second operand.
+- **aSize** — Number of digits of the first text.
+- **bSize** — Number of digits of the second text.
+- **gcdSize** — Parameter `gcdSize`.
+
+**Returns**
+
+Resulting text. The caller frees the memory.
 
 ---
 
@@ -2667,9 +3820,14 @@ char* gcd(char* a, char* b, size_t aSize, size_t bSize, size_t& gcdSize);
 void csSortMinR(csReal*& rn, size_t size);
 ```
 
-@brief Sorts reals into increasing order.
-@param rn Array of reals.
-@param size Requested size.
+**Description**
+
+Sorts reals into increasing order.
+
+**Parameters**
+
+- **rn** — Array of reals.
+- **size** — Requested size.
 
 ---
 
@@ -2679,10 +3837,15 @@ void csSortMinR(csReal*& rn, size_t size);
 void csSortMin_CoordsByRNumber(csFCOORDS*& fc, csReal*& rn, size_t size);
 ```
 
-@brief Sorts points by increasing real.
-@param fc Parameter @p fc.
-@param rn Array of reals.
-@param size Requested size.
+**Description**
+
+Sorts points by increasing real.
+
+**Parameters**
+
+- **fc** — Parameter `fc`.
+- **rn** — Array of reals.
+- **size** — Requested size.
 
 ---
 
@@ -2692,10 +3855,15 @@ void csSortMin_CoordsByRNumber(csFCOORDS*& fc, csReal*& rn, size_t size);
 void csSortMax_CoordsByRNumber(csFCOORDS*& fc, csReal*& rn, size_t size);
 ```
 
-@brief Sorts points by decreasing real.
-@param fc Parameter @p fc.
-@param rn Array of reals.
-@param size Requested size.
+**Description**
+
+Sorts points by decreasing real.
+
+**Parameters**
+
+- **fc** — Parameter `fc`.
+- **rn** — Array of reals.
+- **size** — Requested size.
 
 ---
 
@@ -2705,9 +3873,17 @@ void csSortMax_CoordsByRNumber(csFCOORDS*& fc, csReal*& rn, size_t size);
 CSARITHMETIC_API CSARITHMETIC::csRational csReduce(CSARITHMETIC_API CSARITHMETIC::csRational a, size_t sizeCondition);
 ```
 
-@brief Reduces the value to the requested size.
-@param a First operand.
-@param sizeCondition Parameter @p sizeCondition.
-@return Resulting rational.
+**Description**
+
+Reduces the value to the requested size.
+
+**Parameters**
+
+- **a** — First operand.
+- **sizeCondition** — Parameter `sizeCondition`.
+
+**Returns**
+
+Resulting rational.
 
 ---
