@@ -1,3 +1,4 @@
-build/
-obj/
-bin/
+/build/
+/obj/
+/bin/
+*.py
