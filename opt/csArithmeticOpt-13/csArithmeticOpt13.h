@@ -638,6 +638,16 @@ CS_INLINE static char* csLimbsToDec(const void* raw, size_t n)
  */
     void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool sign=0);
 /**
+ * @brief Fills the rational with a random value between two bounds.
+ * The value lies on the grid @p nombreMin + k * 10^@p exponent. With digits from 0 to 9, k is uniform.
+ * @param nombreMin Bound.
+ * @param nombreMax Other bound.
+ * @param digitMin Smallest digit of k, from 0 to 9.
+ * @param digitMax Largest digit of k, from 0 to 9.
+ * @param exponent Decimal exponent of the step.
+ */
+    void random(const csRational& nombreMin, const csRational& nombreMax, char digitMin=0, char digitMax=9, long exponent=0);
+/**
  * @brief Returns the larger of the two sizes.
  * @return Computed value.
  */
@@ -859,6 +869,16 @@ enum { csIntegerStackLimbs = 32 };
  * @param sign Sign. Zero when the number is positive.
  */
     void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool sign=0);
+/**
+ * @brief Fills the integer with a random value between two bounds.
+ * The value lies on the grid @p nombreMin + k * 10^@p exponent. A negative exponent keeps the step at 1. With digits from 0 to 9, k is uniform.
+ * @param nombreMin Bound.
+ * @param nombreMax Other bound.
+ * @param digitMin Smallest digit of k, from 0 to 9.
+ * @param digitMax Largest digit of k, from 0 to 9.
+ * @param exponent Decimal exponent of the step.
+ */
+    void random(const csInteger& nombreMin, const csInteger& nombreMax, char digitMin=0, char digitMax=9, long exponent=0);
 /**
  * @brief Prints the value.
  * @param title Title printed before the value.
@@ -1657,6 +1677,16 @@ enum { csIntegerStackLimbs = 32 };
  */
     void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool sign=0);
 /**
+ * @brief Fills the real with a random value between two bounds.
+ * The value lies on the grid @p nombreMin + k * 10^@p exponent. With digits from 0 to 9, k is uniform.
+ * @param nombreMin Bound.
+ * @param nombreMax Other bound.
+ * @param digitMin Smallest digit of k, from 0 to 9.
+ * @param digitMax Largest digit of k, from 0 to 9.
+ * @param exponent Decimal exponent of the step.
+ */
+    void random(const csReal& nombreMin, const csReal& nombreMax, char digitMin=0, char digitMax=9, long exponent=0);
+/**
  * @brief Counts the significant zeros of the mantissa.
  * @param initialPos Parameter @p initialPos.
  * @return Computed value.
@@ -1899,17 +1929,32 @@ enum { csIntegerStackLimbs = 32 };
     }
 /**
  * @brief Fills both parts with independent random values.
- * Each part is drawn as a real: same digit count, same exponent, same sign.
+ * Each part is drawn as a real: same digit count, same exponent. Each part has its own sign.
  * @param nDigits Number of digits in each part.
  * @param digitMin Smallest digit, from 0 to 9.
  * @param digitMax Largest digit, from 0 to 9.
  * @param exponent Decimal exponent.
- * @param sign Sign. Zero when the number is positive.
+ * @param signReal Sign of the real part. Zero when that part is positive.
+ * @param signImag Sign of the imaginary part. Zero when that part is positive.
  */
-    void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool sign=0)
+    void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool signReal=0, bool signImag=0)
     {
-      real.random(nDigits, digitMin, digitMax, exponent, sign);
-      imag.random(nDigits, digitMin, digitMax, exponent, sign);
+      real.random(nDigits, digitMin, digitMax, exponent, signReal);
+      imag.random(nDigits, digitMin, digitMax, exponent, signImag);
+    }
+/**
+ * @brief Fills both parts with random reals between two bounds.
+ * Each part stays between the matching parts of the bounds, on the grid of step 10^@p exponent.
+ * @param nombreMin Complex bound.
+ * @param nombreMax Other complex bound.
+ * @param digitMin Smallest digit of the offset, from 0 to 9.
+ * @param digitMax Largest digit of the offset, from 0 to 9.
+ * @param exponent Decimal exponent of the step.
+ */
+    void random(const csComplex& nombreMin, const csComplex& nombreMax, char digitMin=0, char digitMax=9, long exponent=0)
+    {
+      real.random(nombreMin.real, nombreMax.real, digitMin, digitMax, exponent);
+      imag.random(nombreMin.imag, nombreMax.imag, digitMin, digitMax, exponent);
     }
 
     csComplex operator+(const csComplex& other)
@@ -2367,17 +2412,32 @@ enum { csIntegerStackLimbs = 32 };
     }
 /**
  * @brief Fills both parts with independent random rationals.
- * Each part is drawn as a rational: same digit count, same exponent, same sign.
+ * Each part is drawn as a rational: same digit count, same exponent. Each part has its own sign.
  * @param nDigits Number of digits in each part.
  * @param digitMin Smallest digit, from 0 to 9.
  * @param digitMax Largest digit, from 0 to 9.
  * @param exponent Decimal exponent.
- * @param sign Sign. Zero when the number is positive.
+ * @param signReal Sign of the real part. Zero when that part is positive.
+ * @param signImag Sign of the imaginary part. Zero when that part is positive.
  */
-    void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool sign=0)
+    void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool signReal=0, bool signImag=0)
     {
-      real.random(nDigits, digitMin, digitMax, exponent, sign);
-      imag.random(nDigits, digitMin, digitMax, exponent, sign);
+      real.random(nDigits, digitMin, digitMax, exponent, signReal);
+      imag.random(nDigits, digitMin, digitMax, exponent, signImag);
+    }
+/**
+ * @brief Fills both parts with random rationals between two bounds.
+ * Each part stays between the matching parts of the bounds, on the grid of step 10^@p exponent.
+ * @param nombreMin Complex bound.
+ * @param nombreMax Other complex bound.
+ * @param digitMin Smallest digit of the offset, from 0 to 9.
+ * @param digitMax Largest digit of the offset, from 0 to 9.
+ * @param exponent Decimal exponent of the step.
+ */
+    void random(const csComplex_q& nombreMin, const csComplex_q& nombreMax, char digitMin=0, char digitMax=9, long exponent=0)
+    {
+      real.random(nombreMin.real, nombreMax.real, digitMin, digitMax, exponent);
+      imag.random(nombreMin.imag, nombreMax.imag, digitMin, digitMax, exponent);
     }
 
     csComplex_q operator+(const csComplex_q& other)

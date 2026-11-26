@@ -5122,6 +5122,120 @@ static char* csRandomDigits(size_t nDigits, int lo, int hi)
   return digits;
 }
 
+static void csClampDigitRange(int& lo, int& hi)
+{
+  if (lo < 0)
+    lo = 0;
+  if (hi > 9)
+    hi = 9;
+  if (lo > hi)
+    lo = hi;
+}
+
+static csInteger csRandomUpTo(const csInteger& limit, int lo, int hi)
+{
+  csClampDigitRange(lo, hi);
+  if (limit.isNegative() || limit.isZero())
+    return csInteger(0LL);
+  char* dec = limit.toDecimal();
+  size_t L = strlen(dec);
+  if (L == 0) {
+    free(dec);
+    return csInteger(0LL);
+  }
+  if (lo == 0 && hi == 9) {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    char* out = csAlloc<char>(L + 1);
+    bool tight = true;
+    for (size_t i = 0; i < L; ++i) {
+      int top = tight ? (dec[i] - '0') : 9;
+      if (top < 0)
+        top = 0;
+      if (top > 9)
+        top = 9;
+      std::uniform_int_distribution<int> dist(0, top);
+      int pick = dist(gen);
+      out[i] = (char)('0' + pick);
+      if (pick < top)
+        tight = false;
+    }
+    out[L] = 0;
+    csInteger k(out);
+    free(out);
+    free(dec);
+    return k;
+  }
+  int lengthCap = L > 1000000u ? 1000000 : (int)L;
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::uniform_int_distribution<int> lenDist(1, lengthCap);
+  for (int attempt = 0; attempt < 1000; ++attempt) {
+    char* digits = csRandomDigits((size_t)lenDist(gen), lo, hi);
+    csInteger k(digits);
+    free(digits);
+    if (!(k > limit)) {
+      free(dec);
+      return k;
+    }
+  }
+  free(dec);
+  return csInteger(0LL);
+}
+
+static csInteger csPow10Integer(long exponent)
+{
+  if (exponent <= 0)
+    return csInteger(1LL);
+  char* text = csAlloc<char>((size_t)exponent + 2);
+  text[0] = '1';
+  memset(text + 1, '0', (size_t)exponent);
+  text[(size_t)exponent + 1] = 0;
+  csInteger step(text);
+  free(text);
+  return step;
+}
+
+static csRational csTenRational(long exponent)
+{
+  if (exponent >= 0) {
+    char* num = csAlloc<char>((size_t)exponent + 2);
+    num[0] = '1';
+    memset(num + 1, '0', (size_t)exponent);
+    num[(size_t)exponent + 1] = 0;
+    csRational step(num, "1", false);
+    free(num);
+    return step;
+  }
+  size_t zeros = (size_t)(-(long long)exponent);
+  char* den = csAlloc<char>(zeros + 2);
+  den[0] = '1';
+  memset(den + 1, '0', zeros);
+  den[zeros + 1] = 0;
+  csRational step("1", den, false);
+  free(den);
+  return step;
+}
+
+static csInteger csIntegerFromLimbs(const void* limbs, size_t n)
+{
+  char* dec = csLimbsToDec(limbs, n);
+  csInteger value(dec);
+  free(dec);
+  return value;
+}
+
+static csInteger csRationalFloor(csRational a)
+{
+  if (a.negativeSign() || a.isZero())
+    return csInteger(0LL);
+  csInteger num = csIntegerFromLimbs(a.numerator, a.numSize);
+  csInteger den = csIntegerFromLimbs(a.denominator, a.denomSize);
+  if (den.isZero())
+    return csInteger(0LL);
+  return num / den;
+}
+
 void csRational::random(size_t nDigits, char digitMin, char digitMax, long exponent, bool sign)
 {
   char* digits = csRandomDigits(nDigits, (int)digitMin, (int)digitMax);
@@ -5149,6 +5263,23 @@ void csRational::random(size_t nDigits, char digitMin, char digitMax, long expon
     free(den);
   }
   free(digits);
+}
+
+void csRational::random(const csRational& nombreMin, const csRational& nombreMax, char digitMin, char digitMax, long exponent)
+{
+  csRational low = nombreMin;
+  csRational high = nombreMax;
+  if (high < low) {
+    csRational swap = low;
+    low = high;
+    high = swap;
+  }
+  csRational step = csTenRational(exponent);
+  csRational span = high - low;
+  csInteger nSteps = csRationalFloor(span / step);
+  csInteger k = csRandomUpTo(nSteps, (int)digitMin, (int)digitMax);
+  csRational offset = k.toRational() * step;
+  *this = low + offset;
 }
 
 CS_FORCE_INLINE char* csRational::decimalExpansion()
@@ -5607,6 +5738,43 @@ CS_FORCE_INLINE void csReal::random(size_t nDigits, char digitMin, char digitMax
   strcat(str,"\0");
   set(str, exponent, sign);
   free(str);
+}
+
+void csReal::random(const csReal& nombreMin, const csReal& nombreMax, char digitMin, char digitMax, long exponent)
+{
+  csReal low = nombreMin;
+  csReal high = nombreMax;
+  if (high < low) {
+    csReal swap = low;
+    low = high;
+    high = swap;
+  }
+  csReal step;
+  step.setPowerOfTen(exponent);
+  low.precision = 0;
+  high.precision = 0;
+  step.precision = 0;
+  csReal span = high - low;
+  span.precision = 0;
+  csReal whole = (span / step).integer();
+  csInteger nSteps(0LL);
+  if (!whole.negativeSign()) {
+    char* digs = csExportDigits_r(whole);
+    nSteps.set(digs);
+    free(digs);
+  }
+  csInteger k = csRandomUpTo(nSteps, (int)digitMin, (int)digitMax);
+  char* ks = k.toDecimal();
+  csReal offset(ks, 0, false);
+  free(ks);
+  offset.precision = 0;
+  offset = offset * step;
+  csReal value = low + offset;
+  if (value > high)
+    value = high;
+  if (value < low)
+    value = low;
+  *this = value;
 }
 
 CS_FORCE_INLINE void csReal::setPrecision(int size)
@@ -6932,6 +7100,21 @@ void csInteger::random(size_t nDigits, char digitMin, char digitMax, long expone
   }
   set(text);
   free(text);
+}
+
+void csInteger::random(const csInteger& nombreMin, const csInteger& nombreMax, char digitMin, char digitMax, long exponent)
+{
+  csInteger low = nombreMin;
+  csInteger high = nombreMax;
+  if (high < low) {
+    csInteger swap = low;
+    low = high;
+    high = swap;
+  }
+  csInteger step = csPow10Integer(exponent);
+  csInteger nSteps = (high - low) / step;
+  csInteger k = csRandomUpTo(nSteps, (int)digitMin, (int)digitMax);
+  *this = low + k * step;
 }
 
 CS_FORCE_INLINE void csInteger::print(const char* title) const

@@ -1788,6 +1788,26 @@ Fills the rational with a random value. The value is the drawn digits times ten 
 
 ---
 
+### `void random(const csRational& nombreMin, const csRational& nombreMax, char digitMin=0, char digitMax=9, long exponent=0)`
+
+```cpp
+void random(const csRational& nombreMin, const csRational& nombreMax, char digitMin=0, char digitMax=9, long exponent=0);
+```
+
+**Description**
+
+Fills the rational with a random value between two bounds. The value lies on the grid `nombreMin + k * 10^exponent`. With digits from 0 to 9, k is uniform.
+
+**Parameters**
+
+- **nombreMin** — Bound.
+- **nombreMax** — Other bound.
+- **digitMin** — Smallest digit of k, from 0 to 9.
+- **digitMax** — Largest digit of k, from 0 to 9.
+- **exponent** — Decimal exponent of the step.
+
+---
+
 ### `size_t maxLimbCount()`
 
 ```cpp
@@ -2140,6 +2160,26 @@ Fills the integer with a random value. The value is the drawn digits times ten t
 - **digitMax** — Largest digit, from 0 to 9.
 - **exponent** — Decimal exponent.
 - **sign** — Sign. Zero when the number is positive.
+
+---
+
+### `void random(const csInteger& nombreMin, const csInteger& nombreMax, char digitMin=0, char digitMax=9, long exponent=0)`
+
+```cpp
+void random(const csInteger& nombreMin, const csInteger& nombreMax, char digitMin=0, char digitMax=9, long exponent=0);
+```
+
+**Description**
+
+Fills the integer with a random value between two bounds. The value lies on the grid `nombreMin + k * 10^exponent`. A negative exponent keeps the step at 1. With digits from 0 to 9, k is uniform.
+
+**Parameters**
+
+- **nombreMin** — Bound.
+- **nombreMax** — Other bound.
+- **digitMin** — Smallest digit of k, from 0 to 9.
+- **digitMax** — Largest digit of k, from 0 to 9.
+- **exponent** — Decimal exponent of the step.
 
 ---
 
@@ -2670,6 +2710,26 @@ Draws a random value.
 
 ---
 
+### `void random(const csReal& nombreMin, const csReal& nombreMax, char digitMin=0, char digitMax=9, long exponent=0)`
+
+```cpp
+void random(const csReal& nombreMin, const csReal& nombreMax, char digitMin=0, char digitMax=9, long exponent=0);
+```
+
+**Description**
+
+Fills the real with a random value between two bounds. The value lies on the grid `nombreMin + k * 10^exponent`. With digits from 0 to 9, k is uniform.
+
+**Parameters**
+
+- **nombreMin** — Bound.
+- **nombreMax** — Other bound.
+- **digitMin** — Smallest digit of k, from 0 to 9.
+- **digitMax** — Largest digit of k, from 0 to 9.
+- **exponent** — Decimal exponent of the step.
+
+---
+
 ### `size_t significantZeroCount(size_t initialPos=0)`
 
 ```cpp
@@ -2888,15 +2948,15 @@ Complex value of long long integers.
 
 ---
 
-### `void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool sign=0)`
+### `void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool signReal=0, bool signImag=0)`
 
 ```cpp
-void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool sign=0);
+void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool signReal=0, bool signImag=0);
 ```
 
 **Description**
 
-Fills both parts with independent random values. Each part is drawn as a real: same digit count, same exponent, same sign.
+Fills both parts with independent random values. Each part is drawn as a real: same digit count, same exponent. Each part has its own sign.
 
 **Parameters**
 
@@ -2904,7 +2964,28 @@ Fills both parts with independent random values. Each part is drawn as a real: s
 - **digitMin** — Smallest digit, from 0 to 9.
 - **digitMax** — Largest digit, from 0 to 9.
 - **exponent** — Decimal exponent.
-- **sign** — Sign. Zero when the number is positive.
+- **signReal** — Sign of the real part. Zero when that part is positive.
+- **signImag** — Sign of the imaginary part. Zero when that part is positive.
+
+---
+
+### `void random(const csComplex& nombreMin, const csComplex& nombreMax, char digitMin=0, char digitMax=9, long exponent=0)`
+
+```cpp
+void random(const csComplex& nombreMin, const csComplex& nombreMax, char digitMin=0, char digitMax=9, long exponent=0);
+```
+
+**Description**
+
+Fills both parts with random reals between two bounds. Each part stays between the matching parts of the bounds, on the grid of step `10^exponent`.
+
+**Parameters**
+
+- **nombreMin** — Complex bound.
+- **nombreMax** — Other complex bound.
+- **digitMin** — Smallest digit of the offset, from 0 to 9.
+- **digitMax** — Largest digit of the offset, from 0 to 9.
+- **exponent** — Decimal exponent of the step.
 
 ---
 
@@ -3098,15 +3179,15 @@ Complex value of long long integers.
 
 ---
 
-### `void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool sign=0)`
+### `void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool signReal=0, bool signImag=0)`
 
 ```cpp
-void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool sign=0);
+void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool signReal=0, bool signImag=0);
 ```
 
 **Description**
 
-Fills both parts with independent random rationals. Each part is drawn as a rational: same digit count, same exponent, same sign.
+Fills both parts with independent random rationals. Each part is drawn as a rational: same digit count, same exponent. Each part has its own sign.
 
 **Parameters**
 
@@ -3114,7 +3195,28 @@ Fills both parts with independent random rationals. Each part is drawn as a rati
 - **digitMin** — Smallest digit, from 0 to 9.
 - **digitMax** — Largest digit, from 0 to 9.
 - **exponent** — Decimal exponent.
-- **sign** — Sign. Zero when the number is positive.
+- **signReal** — Sign of the real part. Zero when that part is positive.
+- **signImag** — Sign of the imaginary part. Zero when that part is positive.
+
+---
+
+### `void random(const csComplex_q& nombreMin, const csComplex_q& nombreMax, char digitMin=0, char digitMax=9, long exponent=0)`
+
+```cpp
+void random(const csComplex_q& nombreMin, const csComplex_q& nombreMax, char digitMin=0, char digitMax=9, long exponent=0);
+```
+
+**Description**
+
+Fills both parts with random rationals between two bounds. Each part stays between the matching parts of the bounds, on the grid of step `10^exponent`.
+
+**Parameters**
+
+- **nombreMin** — Complex bound.
+- **nombreMax** — Other complex bound.
+- **digitMin** — Smallest digit of the offset, from 0 to 9.
+- **digitMax** — Largest digit of the offset, from 0 to 9.
+- **exponent** — Decimal exponent of the step.
 
 ---
 
