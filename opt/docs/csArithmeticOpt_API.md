@@ -378,6 +378,70 @@ Integer part, with a zero exponent.
 
 ---
 
+### `double toDouble() const`
+
+```cpp
+double toDouble() const;
+```
+
+**Description**
+
+Converts the real to a double. The result is rounded. A value outside the range becomes infinity.
+
+**Returns**
+
+Double value.
+
+---
+
+### `long double toLongDouble() const`
+
+```cpp
+long double toLongDouble() const;
+```
+
+**Description**
+
+Converts the real to a long double. The result is rounded. A value outside the range becomes infinity.
+
+**Returns**
+
+Long double value.
+
+---
+
+### `long toLong() const`
+
+```cpp
+long toLong() const;
+```
+
+**Description**
+
+Converts the real to a long. The fraction is dropped toward zero. A value outside the range stops at the limit of the type.
+
+**Returns**
+
+Long value.
+
+---
+
+### `long long toLongLong() const`
+
+```cpp
+long long toLongLong() const;
+```
+
+**Description**
+
+Converts the real to a long long. The fraction is dropped toward zero. A value outside the range stops at the limit of the type.
+
+**Returns**
+
+Long long value.
+
+---
+
 ### `csReal mantissaSection(size_t first, size_t last)`
 
 ```cpp
@@ -1640,6 +1704,90 @@ Approximation as a double.
 
 ---
 
+### `double toDouble() const`
+
+```cpp
+double toDouble() const;
+```
+
+**Description**
+
+Converts the rational to a double. The result is rounded. A value outside the range becomes infinity.
+
+**Returns**
+
+Double value.
+
+---
+
+### `long double toLongDouble() const`
+
+```cpp
+long double toLongDouble() const;
+```
+
+**Description**
+
+Converts the rational to a long double. The result is rounded. A value outside the range becomes infinity.
+
+**Returns**
+
+Long double value.
+
+---
+
+### `long toLong() const`
+
+```cpp
+long toLong() const;
+```
+
+**Description**
+
+Converts the rational to a long. The fraction is dropped toward zero. A value outside the range stops at the limit of the type.
+
+**Returns**
+
+Long value.
+
+---
+
+### `long long toLongLong() const`
+
+```cpp
+long long toLongLong() const;
+```
+
+**Description**
+
+Converts the rational to a long long. The fraction is dropped toward zero. A value outside the range stops at the limit of the type.
+
+**Returns**
+
+Long long value.
+
+---
+
+### `void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool sign=0)`
+
+```cpp
+void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool sign=0);
+```
+
+**Description**
+
+Fills the rational with a random value. The value is the drawn digits times ten to the power `exponent`.
+
+**Parameters**
+
+- **nDigits** — Number of digits.
+- **digitMin** — Smallest digit, from 0 to 9.
+- **digitMax** — Largest digit, from 0 to 9.
+- **exponent** — Decimal exponent.
+- **sign** — Sign. Zero when the number is positive.
+
+---
+
 ### `size_t maxLimbCount()`
 
 ```cpp
@@ -1908,6 +2056,70 @@ Returns the decimal digits, sign included.
 **Returns**
 
 Resulting text. The caller frees the memory.
+
+---
+
+### `double toDouble() const`
+
+```cpp
+double toDouble() const;
+```
+
+**Description**
+
+Converts the integer to a double. The result is rounded. A value outside the range becomes infinity.
+
+**Returns**
+
+Double value.
+
+---
+
+### `long double toLongDouble() const`
+
+```cpp
+long double toLongDouble() const;
+```
+
+**Description**
+
+Converts the integer to a long double. The result is rounded. A value outside the range becomes infinity.
+
+**Returns**
+
+Long double value.
+
+---
+
+### `long toLong() const`
+
+```cpp
+long toLong() const;
+```
+
+**Description**
+
+Converts the integer to a long. A value outside the range stops at the limit of the type.
+
+**Returns**
+
+Long value.
+
+---
+
+### `long long toLongLong() const`
+
+```cpp
+long long toLongLong() const;
+```
+
+**Description**
+
+Converts the integer to a long long. A value outside the range stops at the limit of the type.
+
+**Returns**
+
+Long long value.
 
 ---
 
@@ -2592,6 +2804,90 @@ Returns the imaginary unit.
 
 ---
 
+### `std::complex<double> toDouble() const`
+
+```cpp
+std::complex<double> toDouble() const;
+```
+
+**Description**
+
+Converts the complex value to `complex<double>`. Each part is rounded. A part outside the range becomes infinity.
+
+**Returns**
+
+Machine complex value.
+
+---
+
+### `std::complex<long double> toLongDouble() const`
+
+```cpp
+std::complex<long double> toLongDouble() const;
+```
+
+**Description**
+
+Converts the complex value to `complex<long double>`. Each part is rounded. A part outside the range becomes infinity.
+
+**Returns**
+
+Machine complex value.
+
+---
+
+### `std::complex<long> toLong() const`
+
+```cpp
+std::complex<long> toLong() const;
+```
+
+**Description**
+
+Converts the complex value to `complex<long>`. The fraction of each part is dropped toward zero. A part outside the range stops at the limit of the type.
+
+**Returns**
+
+Complex value of long integers.
+
+---
+
+### `std::complex<long long> toLongLong() const`
+
+```cpp
+std::complex<long long> toLongLong() const;
+```
+
+**Description**
+
+Converts the complex value to `complex<long long>`. The fraction of each part is dropped toward zero. A part outside the range stops at the limit of the type.
+
+**Returns**
+
+Complex value of long long integers.
+
+---
+
+### `void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool sign=0)`
+
+```cpp
+void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool sign=0);
+```
+
+**Description**
+
+Fills both parts with independent random values. Each part is drawn as a real: same digit count, same exponent, same sign.
+
+**Parameters**
+
+- **nDigits** — Number of digits in each part.
+- **digitMin** — Smallest digit, from 0 to 9.
+- **digitMax** — Largest digit, from 0 to 9.
+- **exponent** — Decimal exponent.
+- **sign** — Sign. Zero when the number is positive.
+
+---
+
 ### `void print(const char* title)`
 
 ```cpp
@@ -2715,6 +3011,90 @@ static csComplex_q imaginaryUnit();
 **Description**
 
 Returns the imaginary unit.
+
+---
+
+### `std::complex<double> toDouble() const`
+
+```cpp
+std::complex<double> toDouble() const;
+```
+
+**Description**
+
+Converts the rational complex value to `complex<double>`. Each part is rounded. A part outside the range becomes infinity.
+
+**Returns**
+
+Machine complex value.
+
+---
+
+### `std::complex<long double> toLongDouble() const`
+
+```cpp
+std::complex<long double> toLongDouble() const;
+```
+
+**Description**
+
+Converts the rational complex value to `complex<long double>`. Each part is rounded. A part outside the range becomes infinity.
+
+**Returns**
+
+Machine complex value.
+
+---
+
+### `std::complex<long> toLong() const`
+
+```cpp
+std::complex<long> toLong() const;
+```
+
+**Description**
+
+Converts the rational complex value to `complex<long>`. The fraction of each part is dropped toward zero. A part outside the range stops at the limit of the type.
+
+**Returns**
+
+Complex value of long integers.
+
+---
+
+### `std::complex<long long> toLongLong() const`
+
+```cpp
+std::complex<long long> toLongLong() const;
+```
+
+**Description**
+
+Converts the rational complex value to `complex<long long>`. The fraction of each part is dropped toward zero. A part outside the range stops at the limit of the type.
+
+**Returns**
+
+Complex value of long long integers.
+
+---
+
+### `void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool sign=0)`
+
+```cpp
+void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool sign=0);
+```
+
+**Description**
+
+Fills both parts with independent random rationals. Each part is drawn as a rational: same digit count, same exponent, same sign.
+
+**Parameters**
+
+- **nDigits** — Number of digits in each part.
+- **digitMin** — Smallest digit, from 0 to 9.
+- **digitMax** — Largest digit, from 0 to 9.
+- **exponent** — Decimal exponent.
+- **sign** — Sign. Zero when the number is positive.
 
 ---
 

@@ -604,6 +604,40 @@ CS_INLINE static char* csLimbsToDec(const void* raw, size_t n)
  */
     double getDouble();
 /**
+ * @brief Converts the rational to a double.
+ * The result is rounded. A value outside the range becomes infinity.
+ * @return Double value.
+ */
+    double toDouble() const;
+/**
+ * @brief Converts the rational to a long double.
+ * The result is rounded. A value outside the range becomes infinity.
+ * @return Long double value.
+ */
+    long double toLongDouble() const;
+/**
+ * @brief Converts the rational to a long.
+ * The fraction is dropped toward zero. A value outside the range stops at the limit of the type.
+ * @return Long value.
+ */
+    long toLong() const;
+/**
+ * @brief Converts the rational to a long long.
+ * The fraction is dropped toward zero. A value outside the range stops at the limit of the type.
+ * @return Long long value.
+ */
+    long long toLongLong() const;
+/**
+ * @brief Fills the rational with a random value.
+ * The value is the drawn digits times ten to the power @p exponent.
+ * @param nDigits Number of digits.
+ * @param digitMin Smallest digit, from 0 to 9.
+ * @param digitMax Largest digit, from 0 to 9.
+ * @param exponent Decimal exponent.
+ * @param sign Sign. Zero when the number is positive.
+ */
+    void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool sign=0);
+/**
  * @brief Returns the larger of the two sizes.
  * @return Computed value.
  */
@@ -791,6 +825,30 @@ enum { csIntegerStackLimbs = 32 };
  * @return Resulting text. The caller frees the memory.
  */
     char* toDecimal() const;
+/**
+ * @brief Converts the integer to a double.
+ * The result is rounded. A value outside the range becomes infinity.
+ * @return Double value.
+ */
+    double toDouble() const;
+/**
+ * @brief Converts the integer to a long double.
+ * The result is rounded. A value outside the range becomes infinity.
+ * @return Long double value.
+ */
+    long double toLongDouble() const;
+/**
+ * @brief Converts the integer to a long.
+ * A value outside the range stops at the limit of the type.
+ * @return Long value.
+ */
+    long toLong() const;
+/**
+ * @brief Converts the integer to a long long.
+ * A value outside the range stops at the limit of the type.
+ * @return Long long value.
+ */
+    long long toLongLong() const;
 /**
  * @brief Prints the value.
  * @param title Title printed before the value.
@@ -1447,6 +1505,30 @@ enum { csIntegerStackLimbs = 32 };
  * @return Integer part, with a zero exponent.
  */
     csReal integer();
+/**
+ * @brief Converts the real to a double.
+ * The result is rounded. A value outside the range becomes infinity.
+ * @return Double value.
+ */
+    double toDouble() const;
+/**
+ * @brief Converts the real to a long double.
+ * The result is rounded. A value outside the range becomes infinity.
+ * @return Long double value.
+ */
+    long double toLongDouble() const;
+/**
+ * @brief Converts the real to a long.
+ * The fraction is dropped toward zero. A value outside the range stops at the limit of the type.
+ * @return Long value.
+ */
+    long toLong() const;
+/**
+ * @brief Converts the real to a long long.
+ * The fraction is dropped toward zero. A value outside the range stops at the limit of the type.
+ * @return Long long value.
+ */
+    long long toLongLong() const;
     csReal operator-() const;
     csReal& operator=(csReal a);
     void operator=(long a);
@@ -1768,6 +1850,56 @@ enum { csIntegerStackLimbs = 32 };
     static csComplex imaginaryUnit()
     {
       return csComplex((long)0, (long)1);
+    }
+/**
+ * @brief Converts the complex value to complex<double>.
+ * Each part is rounded. A part outside the range becomes infinity.
+ * @return Machine complex value.
+ */
+    std::complex<double> toDouble() const
+    {
+      return std::complex<double>(real.toDouble(), imag.toDouble());
+    }
+/**
+ * @brief Converts the complex value to complex<long double>.
+ * Each part is rounded. A part outside the range becomes infinity.
+ * @return Machine complex value.
+ */
+    std::complex<long double> toLongDouble() const
+    {
+      return std::complex<long double>(real.toLongDouble(), imag.toLongDouble());
+    }
+/**
+ * @brief Converts the complex value to complex<long>.
+ * The fraction of each part is dropped toward zero. A part outside the range stops at the limit of the type.
+ * @return Complex value of long integers.
+ */
+    std::complex<long> toLong() const
+    {
+      return std::complex<long>(real.toLong(), imag.toLong());
+    }
+/**
+ * @brief Converts the complex value to complex<long long>.
+ * The fraction of each part is dropped toward zero. A part outside the range stops at the limit of the type.
+ * @return Complex value of long long integers.
+ */
+    std::complex<long long> toLongLong() const
+    {
+      return std::complex<long long>(real.toLongLong(), imag.toLongLong());
+    }
+/**
+ * @brief Fills both parts with independent random values.
+ * Each part is drawn as a real: same digit count, same exponent, same sign.
+ * @param nDigits Number of digits in each part.
+ * @param digitMin Smallest digit, from 0 to 9.
+ * @param digitMax Largest digit, from 0 to 9.
+ * @param exponent Decimal exponent.
+ * @param sign Sign. Zero when the number is positive.
+ */
+    void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool sign=0)
+    {
+      real.random(nDigits, digitMin, digitMax, exponent, sign);
+      imag.random(nDigits, digitMin, digitMax, exponent, sign);
     }
 
     csComplex operator+(const csComplex& other)
@@ -2186,6 +2318,56 @@ enum { csIntegerStackLimbs = 32 };
     static csComplex_q imaginaryUnit()
     {
       return csComplex_q((long)0, (long)1);
+    }
+/**
+ * @brief Converts the rational complex value to complex<double>.
+ * Each part is rounded. A part outside the range becomes infinity.
+ * @return Machine complex value.
+ */
+    std::complex<double> toDouble() const
+    {
+      return std::complex<double>(real.toDouble(), imag.toDouble());
+    }
+/**
+ * @brief Converts the rational complex value to complex<long double>.
+ * Each part is rounded. A part outside the range becomes infinity.
+ * @return Machine complex value.
+ */
+    std::complex<long double> toLongDouble() const
+    {
+      return std::complex<long double>(real.toLongDouble(), imag.toLongDouble());
+    }
+/**
+ * @brief Converts the rational complex value to complex<long>.
+ * The fraction of each part is dropped toward zero. A part outside the range stops at the limit of the type.
+ * @return Complex value of long integers.
+ */
+    std::complex<long> toLong() const
+    {
+      return std::complex<long>(real.toLong(), imag.toLong());
+    }
+/**
+ * @brief Converts the rational complex value to complex<long long>.
+ * The fraction of each part is dropped toward zero. A part outside the range stops at the limit of the type.
+ * @return Complex value of long long integers.
+ */
+    std::complex<long long> toLongLong() const
+    {
+      return std::complex<long long>(real.toLongLong(), imag.toLongLong());
+    }
+/**
+ * @brief Fills both parts with independent random rationals.
+ * Each part is drawn as a rational: same digit count, same exponent, same sign.
+ * @param nDigits Number of digits in each part.
+ * @param digitMin Smallest digit, from 0 to 9.
+ * @param digitMax Largest digit, from 0 to 9.
+ * @param exponent Decimal exponent.
+ * @param sign Sign. Zero when the number is positive.
+ */
+    void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool sign=0)
+    {
+      real.random(nDigits, digitMin, digitMax, exponent, sign);
+      imag.random(nDigits, digitMin, digitMax, exponent, sign);
     }
 
     csComplex_q operator+(const csComplex_q& other)

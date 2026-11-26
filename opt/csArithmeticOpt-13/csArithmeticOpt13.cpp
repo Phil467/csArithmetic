@@ -1,3 +1,4 @@
+#include <limits>
 #include "csArithmeticOpt13.h"
 
 #ifdef CS_STATIC_LIB
@@ -5043,6 +5044,113 @@ CS_FORCE_INLINE double csRational::getDouble()
   return sign ? -r : r;
 }
 
+static csReal csRationalAsReal(const csRational& a, int places)
+{
+  if (places < 1)
+    places = 1;
+  if (!a.numerator || !a.denominator || csRawZero_q(a.numerator, a.numSize) || csRawZero_q(a.denominator, a.denomSize))
+    return csReal(0L);
+  char* ns = csLimbsToDec(a.numerator, a.numSize);
+  char* ds = csLimbsToDec(a.denominator, a.denomSize);
+  csReal num(ns, 0, a.sign);
+  csReal den(ds, 0, false);
+  free(ns);
+  free(ds);
+  int saved = realPrecision();
+  setRealPrecision(places);
+  num.precision = 0;
+  den.precision = 0;
+  csReal value = num / den;
+  setRealPrecision(saved);
+  value.precision = 0;
+  return value;
+}
+
+static int csFloatPlaces()
+{
+  int places = std::numeric_limits<long double>::max_digits10 + 8;
+  if (places < 40)
+    places = 40;
+  if (places > 80)
+    places = 80;
+  return places;
+}
+
+double csRational::toDouble() const
+{
+  return csRationalAsReal(*this, csFloatPlaces()).toDouble();
+}
+
+long double csRational::toLongDouble() const
+{
+  return csRationalAsReal(*this, csFloatPlaces()).toLongDouble();
+}
+
+long csRational::toLong() const
+{
+  return csRationalAsReal(*this, csFloatPlaces()).toLong();
+}
+
+long long csRational::toLongLong() const
+{
+  return csRationalAsReal(*this, csFloatPlaces()).toLongLong();
+}
+
+static char* csRandomDigits(size_t nDigits, int lo, int hi)
+{
+  if (nDigits == 0)
+    nDigits = 1;
+  if (lo < 0)
+    lo = 0;
+  if (hi > 9)
+    hi = 9;
+  if (lo > hi)
+    lo = hi;
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::uniform_int_distribution<int> dist(lo, hi);
+  char* digits = csAlloc<char>(nDigits + 1);
+  bool any = false;
+  for (size_t i = 0; i < nDigits; ++i) {
+    digits[i] = (char)('0' + dist(gen));
+    if (digits[i] != '0')
+      any = true;
+  }
+  digits[nDigits] = 0;
+  if (!any)
+    digits[0] = '0';
+  return digits;
+}
+
+void csRational::random(size_t nDigits, char digitMin, char digitMax, long exponent, bool sign)
+{
+  char* digits = csRandomDigits(nDigits, (int)digitMin, (int)digitMax);
+  bool any = false;
+  for (size_t i = 0; digits[i]; ++i) {
+    if (digits[i] != '0')
+      any = true;
+  }
+  bool useSign = any && sign;
+  if (exponent >= 0) {
+    size_t n = strlen(digits);
+    char* num = csAlloc<char>(n + (size_t)exponent + 1);
+    memcpy(num, digits, n);
+    memset(num + n, '0', (size_t)exponent);
+    num[n + (size_t)exponent] = 0;
+    set(num, "1", useSign);
+    free(num);
+  } else {
+    size_t zeros = (size_t)(-(long long)exponent);
+    char* den = csAlloc<char>(zeros + 2);
+    den[0] = '1';
+    memset(den + 1, '0', zeros);
+    den[zeros + 1] = 0;
+    set(digits, den, useSign);
+    free(den);
+  }
+  free(digits);
+}
+
 CS_FORCE_INLINE char* csRational::decimalExpansion()
 {
   char* ns = csLimbsToDec(numerator, numSize);
@@ -5859,6 +5967,159 @@ CS_FORCE_INLINE csReal csReal::integer()
   return x;
 }
 
+static bool csSciExpOf(const csReal& a, long long& exp10)
+{
+  const uint32_t* p = (const uint32_t*)a.mantissa;
+  size_t n = a.mantSize;
+  if (!p || n == 0)
+    return false;
+  while (n > 1 && p[n - 1] == 0)
+    --n;
+  if (n == 1 && p[0] == 0)
+    return false;
+  double hi;
+  size_t below;
+  if (n >= 2) {
+    hi = (double)p[n - 1] * 4294967296.0 + (double)p[n - 2];
+    below = n - 2;
+  } else {
+    hi = (double)p[0];
+    below = 0;
+  }
+  double lg = std::log10(hi) + (double)below * (32.0 * std::log10(2.0));
+  exp10 = (long long)std::floor(lg + 1e-12) + (long long)a.exponent;
+  return true;
+}
+
+template<class T>
+static T csRealToFloat(const csReal& a)
+{
+  long long E = 0;
+  if (!csSciExpOf(a, E))
+    return (T)0;
+  if (E > (long long)std::numeric_limits<T>::max_exponent10 + 2) {
+    T inf = std::numeric_limits<T>::infinity();
+    return a.negativeSign() ? -inf : inf;
+  }
+  if (E < (long long)std::numeric_limits<T>::min_exponent10 - 40)
+    return (T)0;
+  csReal t = a;
+  t.precision = 0;
+  long long digits = E - (long long)t.exponent + 1;
+  int want = std::numeric_limits<T>::max_digits10 + 20;
+  if (want < 24)
+    want = 24;
+  if (want > 80)
+    want = 80;
+  if (digits > (long long)want + 2) {
+    long long drop = digits - want;
+    if (drop > 0)
+      t.shortenMantissa((size_t)drop);
+  }
+  char* digs = csExportDigits_r(t);
+  if (!digs || digs[0] == 0 || (digs[0] == '0' && digs[1] == 0)) {
+    free(digs);
+    return (T)0;
+  }
+  size_t n = strlen(digs);
+  long long exp10 = (long long)(n - 1) + (long long)t.exponent;
+  int keep = std::numeric_limits<T>::max_digits10 + 4;
+  if (keep < 2)
+    keep = 2;
+  if ((size_t)keep > n)
+    keep = (int)n;
+  if (keep > 90)
+    keep = 90;
+  char buf[128];
+  int w = 0;
+  if (a.negativeSign())
+    buf[w++] = '-';
+  buf[w++] = digs[0];
+  if (keep > 1) {
+    buf[w++] = '.';
+    memcpy(buf + w, digs + 1, (size_t)keep - 1);
+    w += keep - 1;
+  }
+  buf[w++] = 'e';
+  buf[w] = 0;
+  snprintf(buf + w, sizeof(buf) - (size_t)w, "%lld", (long long)exp10);
+  free(digs);
+  if (std::is_same<T, long double>::value)
+    return (T)strtold(buf, 0);
+  return (T)strtod(buf, 0);
+}
+
+template<class T>
+static T csRealToSigned(const csReal& a)
+{
+  long long E = 0;
+  if (!csSciExpOf(a, E))
+    return (T)0;
+  if (E <= -2)
+    return (T)0;
+  if (E >= (long long)std::numeric_limits<T>::digits10 + 3)
+    return a.negativeSign() ? std::numeric_limits<T>::min() : std::numeric_limits<T>::max();
+  csReal t = a;
+  t.precision = 0;
+  if (t.exponent < 0)
+    t.shortenMantissa((size_t)(-t.exponent));
+  if (t.isZero())
+    return (T)0;
+  char* digs = csExportDigits_r(t);
+  if (!digs) {
+    return (T)0;
+  }
+  size_t n = strlen(digs);
+  size_t zeros = t.exponent > 0 ? (size_t)t.exponent : 0;
+  typedef typename std::make_unsigned<T>::type U;
+  U lim = a.negativeSign()
+    ? (U)0 - (U)std::numeric_limits<T>::min()
+    : (U)std::numeric_limits<T>::max();
+  U mag = 0;
+  bool over = false;
+  size_t steps = n + zeros;
+  for (size_t i = 0; i < steps; ++i) {
+    unsigned d = 0;
+    if (i < n)
+      d = (unsigned)(digs[i] - '0');
+    if (!over) {
+      if (mag > (lim - (U)d) / (U)10)
+        over = true;
+      else
+        mag = mag * (U)10 + (U)d;
+    }
+  }
+  free(digs);
+  if (over)
+    return a.negativeSign() ? std::numeric_limits<T>::min() : std::numeric_limits<T>::max();
+  if (!a.negativeSign())
+    return (T)mag;
+  U minMag = (U)0 - (U)std::numeric_limits<T>::min();
+  if (mag == minMag && minMag != (U)std::numeric_limits<T>::max())
+    return std::numeric_limits<T>::min();
+  return (T)(-(T)mag);
+}
+
+double csReal::toDouble() const
+{
+  return csRealToFloat<double>(*this);
+}
+
+long double csReal::toLongDouble() const
+{
+  return csRealToFloat<long double>(*this);
+}
+
+long csReal::toLong() const
+{
+  return csRealToSigned<long>(*this);
+}
+
+long long csReal::toLongLong() const
+{
+  return csRealToSigned<long long>(*this);
+}
+
 CS_FORCE_INLINE csReal csReal::operator/(const csReal& _a)
 {
   csReal rn;
@@ -6611,6 +6872,26 @@ CS_FORCE_INLINE char* csInteger::toDecimal() const
   memcpy(signedText + 1, text, length + 1);
   free(text);
   return signedText;
+}
+
+double csInteger::toDouble() const
+{
+  return toRational().toDouble();
+}
+
+long double csInteger::toLongDouble() const
+{
+  return toRational().toLongDouble();
+}
+
+long csInteger::toLong() const
+{
+  return toRational().toLong();
+}
+
+long long csInteger::toLongLong() const
+{
+  return toRational().toLongLong();
 }
 
 CS_FORCE_INLINE void csInteger::print(const char* title) const
