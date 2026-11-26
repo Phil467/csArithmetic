@@ -2123,6 +2123,26 @@ Long long value.
 
 ---
 
+### `void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool sign=0)`
+
+```cpp
+void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool sign=0);
+```
+
+**Description**
+
+Fills the integer with a random value. The value is the drawn digits times ten to the power `exponent`. A negative exponent drops the fraction toward zero.
+
+**Parameters**
+
+- **nDigits** — Number of digits.
+- **digitMin** — Smallest digit, from 0 to 9.
+- **digitMax** — Largest digit, from 0 to 9.
+- **exponent** — Decimal exponent.
+- **sign** — Sign. Zero when the number is positive.
+
+---
+
 ### `void print(const char* title) const`
 
 ```cpp

@@ -16,7 +16,7 @@ The modulus uses a short Newton iteration written with the real operators. The p
 
 `toDouble`, `toLongDouble`, `toLong` and `toLongLong` convert a `csReal`, a `csRational`, a `csInteger`, a `csComplex` or a `csComplex_q` to the matching C++ type. Floating conversions round. A value outside the range becomes infinity. Integer conversions drop the fraction toward zero and stop at the limits of the type.
 
-`random` fills a rational or either complex type, with the same arguments as `csReal::random`. The drawn digits are an exact decimal times ten to the given exponent. Each part of a complex value is drawn on its own.
+`random` fills an integer, a rational or either complex type, with the same arguments as `csReal::random`. The drawn digits are an exact decimal times ten to the given exponent. On an integer, a negative exponent drops the fraction toward zero. Each part of a complex value is drawn on its own.
 
 # Version 12
 

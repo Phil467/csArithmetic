@@ -850,6 +850,16 @@ enum { csIntegerStackLimbs = 32 };
  */
     long long toLongLong() const;
 /**
+ * @brief Fills the integer with a random value.
+ * The value is the drawn digits times ten to the power @p exponent. A negative exponent drops the fraction toward zero.
+ * @param nDigits Number of digits.
+ * @param digitMin Smallest digit, from 0 to 9.
+ * @param digitMax Largest digit, from 0 to 9.
+ * @param exponent Decimal exponent.
+ * @param sign Sign. Zero when the number is positive.
+ */
+    void random(size_t nDigits, char digitMin=0, char digitMax=9, long exponent=0, bool sign=0);
+/**
  * @brief Prints the value.
  * @param title Title printed before the value.
  */

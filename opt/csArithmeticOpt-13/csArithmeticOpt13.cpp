@@ -6894,6 +6894,46 @@ long long csInteger::toLongLong() const
   return toRational().toLongLong();
 }
 
+void csInteger::random(size_t nDigits, char digitMin, char digitMax, long exponent, bool sign)
+{
+  char* digits = csRandomDigits(nDigits, (int)digitMin, (int)digitMax);
+  size_t n = strlen(digits);
+  char* text;
+  if (exponent >= 0) {
+    text = csAlloc<char>(n + (size_t)exponent + 1);
+    memcpy(text, digits, n);
+    memset(text + n, '0', (size_t)exponent);
+    text[n + (size_t)exponent] = 0;
+  } else {
+    size_t drop = (size_t)(-(long long)exponent);
+    if (drop >= n) {
+      text = csAlloc<char>(2);
+      text[0] = '0';
+      text[1] = 0;
+    } else {
+      text = csAlloc<char>(n - drop + 1);
+      memcpy(text, digits, n - drop);
+      text[n - drop] = 0;
+    }
+  }
+  free(digits);
+  bool any = false;
+  for (size_t i = 0; text[i]; ++i) {
+    if (text[i] != '0')
+      any = true;
+  }
+  if (any && sign) {
+    size_t len = strlen(text);
+    char* signedText = csAlloc<char>(len + 2);
+    signedText[0] = '-';
+    memcpy(signedText + 1, text, len + 1);
+    free(text);
+    text = signedText;
+  }
+  set(text);
+  free(text);
+}
+
 CS_FORCE_INLINE void csInteger::print(const char* title) const
 {
   char* text = toDecimal();
